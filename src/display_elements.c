@@ -7,37 +7,37 @@
 
 #include "../include/my_hunter.h"
 
-static void display_elements_2(my_hunter_t *mh)
+static void display_elements_2(tekleague_t *jam)
 {
-    dispText(mh->mh_st.title, "Statistics", mh->font, 100);
-    dispText(mh->mh_st.last_score, "Last score:", mh->font, 70);
-    dispText(mh->mh_st.sbs, "Session best score:", mh->font, 70);
-    dispText(mh->mh_st.atbs, "All time best score:", mh->font, 70);
-    dispText(mh->mh_st.last_score_, "0", mh->font, 70);
-    dispText(mh->mh_st.sbs_, "0", mh->font, 70);
-    dispText(mh->mh_st.atbs_, "0", mh->font, 70);
-    dispText(mh->mh_se.wip, "WIP", mh->font, 150);
+    dispText(jam->jam_st.title, "Statistics", jam->font, 100);
+    dispText(jam->jam_st.last_score, "Last score:", jam->font, 70);
+    dispText(jam->jam_st.sbs, "Session best score:", jam->font, 70);
+    dispText(jam->jam_st.atbs, "All time best score:", jam->font, 70);
+    dispText(jam->jam_st.last_score_, "0", jam->font, 70);
+    dispText(jam->jam_st.sbs_, "0", jam->font, 70);
+    dispText(jam->jam_st.atbs_, "0", jam->font, 70);
+    dispText(jam->jam_se.wip, "WIP", jam->font, 150);
 }
 
-void display_elements(my_hunter_t *mh)
+void display_elements(tekleague_t *jam)
 {
-    dispSprite(mh->background, mh->background_texture);
-    dispSprite(mh->hogwarts_bigroom, mh->hogwarts_bigroom_texture);
-    dispSprite(mh->star_back, mh->star_back_texture);
-    dispSprite(mh->mh_p.wand, mh->mh_p.wand_texture);
-    dispSprite(mh->mh_p.dementor, mh->mh_p.dementor_texture);
-    dispSprite(mh->mh_htp.htp, mh->mh_htp.htp_texture);
-    dispText(mh->mh_ts.title, "My Hunter", mh->font, 200);
-    dispText(mh->mh_ts.play, "Play", mh->font, 150);
-    dispText(mh->mh_ts.stats, "Statistics", mh->font, 100);
-    dispText(mh->mh_ts.settings, "Settings", mh->font, 100);
-    dispText(mh->mh_ts.how_to_play, "How to play", mh->font, 100);
-    dispText(mh->mh_ts.credits, "Credits", mh->font, 100);
-    dispText(mh->mh_ts.quit, "Quit", mh->font, 100);
-    dispText(mh->mh_p.score_, "Score:", mh->font, 70);
-    dispText(mh->mh_p.score, "0", mh->font, 70);
-    dispText(mh->mh_c.title, "Credits", mh->font, 100);
-    dispText(mh->mh_c.person, "Clement Lienard", mh->font, 70);
-    dispText(mh->mh_c.other, "Warner Bros", mh->font, 70);
-    display_elements_2(mh);
+    dispSprite(jam->background, jam->background_texture);
+    dispSprite(jam->hogwarts_bigroom, jam->hogwarts_bigroom_texture);
+    dispSprite(jam->star_back, jam->star_back_texture);
+    dispSprite(jam->jam_p.wand, jam->jam_p.wand_texture);
+    dispSprite(jam->jam_p.dementor, jam->jam_p.dementor_texture);
+    dispSprite(jam->jam_htp.htp, jam->jam_htp.htp_texture);
+    dispText(jam->jam_ts.title, "My Hunter", jam->font, 200);
+    dispText(jam->jam_ts.play, "Play", jam->font, 150);
+    dispText(jam->jam_ts.stats, "Statistics", jam->font, 100);
+    dispText(jam->jam_ts.settings, "Settings", jam->font, 100);
+    dispText(jam->jam_ts.how_to_play, "How to play", jam->font, 100);
+    dispText(jam->jam_ts.credits, "Credits", jam->font, 100);
+    dispText(jam->jam_ts.quit, "Quit", jam->font, 100);
+    dispText(jam->jam_p.score_, "Score:", jam->font, 70);
+    dispText(jam->jam_p.score, "0", jam->font, 70);
+    dispText(jam->jam_c.title, "Credits", jam->font, 100);
+    dispText(jam->jam_c.person, "Clement Lienard", jam->font, 70);
+    dispText(jam->jam_c.other, "Warner Bros", jam->font, 70);
+    display_elements_2(jam);
 }

@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2022
 ** MyHunter
 ** File description:
-** my_hunter
+** tekleague
 */
 
 #include "../include/my_hunter.h"
 
-int my_hunter(int ac, char **av, char **env)
+int tekleague(int ac, char **av, char **env)
 {
     if (env[0] == NULL) {
         write(2, "Please launch this program with an environment!\n", 48);

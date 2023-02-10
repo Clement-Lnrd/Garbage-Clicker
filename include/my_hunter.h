@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2022
 ** MyHunter
 ** File description:
-** my_hunter
+** tekleague
 */
 
 #ifndef MY_HUNTER_H_
@@ -54,7 +54,7 @@ typedef struct {
     sfVector2f pos_how_to_play;
     sfVector2f pos_credits;
     sfVector2f pos_quit;
-} mh_title_screen_t;
+} jam_title_screen_t;
 
 // Play menu structure
 typedef struct {
@@ -70,7 +70,7 @@ typedef struct {
     sfVector2f pos_wand;
     sfIntRect wands;
     sfIntRect dementors;
-} mh_play_t;
+} jam_play_t;
 
 // Statistics menu structure
 typedef struct {
@@ -88,7 +88,7 @@ typedef struct {
     sfVector2f pos_last_score_;
     sfVector2f pos_sbs_;
     sfVector2f pos_atbs_;
-} mh_stats_t;
+} jam_stats_t;
 
 // Settings menu structure
 typedef struct {
@@ -99,13 +99,13 @@ typedef struct {
     // sfText *difficulty;
     sfText *wip;
     sfVector2f pos_wip;
-} mh_settings_t;
+} jam_settings_t;
 
 // How to play menu structure
 typedef struct {
     sfTexture *htp_texture;
     sfSprite *htp;
-} mh_how_to_play;
+} jam_how_to_play;
 
 // Credits meu structure
 typedef struct {
@@ -115,7 +115,7 @@ typedef struct {
     sfVector2f pos_title;
     sfVector2f pos_person;
     sfVector2f pos_other;
-} mh_credits;
+} jam_credits;
 
 // Principal My Hunter structure
 typedef struct {
@@ -132,25 +132,25 @@ typedef struct {
     sfSprite *hogwarts_bigroom;
     sfTexture *star_back_texture;
     sfSprite *star_back;
-    mh_title_screen_t mh_ts;
-    mh_play_t mh_p;
-    mh_stats_t mh_st;
-    mh_settings_t mh_se;
-    mh_how_to_play mh_htp;
-    mh_credits mh_c;
-} my_hunter_t;
+    jam_title_screen_t jam_ts;
+    jam_play_t jam_p;
+    jam_stats_t jam_st;
+    jam_settings_t jam_se;
+    jam_how_to_play jam_htp;
+    jam_credits jam_c;
+} tekleague_t;
 
 
 
-void set_struct(my_hunter_t *);
-void display_elements(my_hunter_t *);
-void render_elements(my_hunter_t *);
+void set_struct(tekleague_t *);
+void display_elements(tekleague_t *);
+void render_elements(tekleague_t *);
 
     /* Title screen */
 
-void destroy_my_hunter(my_hunter_t *);
-int set_buttons_colors(sfVector2i, my_hunter_t *);
-int render_title_screen(my_hunter_t *);
+void destroy_tekleague(tekleague_t *);
+int set_buttons_colors(sfVector2i, tekleague_t *);
+int render_title_screen(tekleague_t *);
 int title_screen(void);
 
 
@@ -158,34 +158,34 @@ int title_screen(void);
     /* Play */
 
 long long int get_best_score(void);
-void animate_dementor(my_hunter_t *, sfTime);
-void dementor_kill(my_hunter_t *, sfVector2f, sfVector2f *, unsigned int *);
-int play(my_hunter_t *);
+void animate_dementor(tekleague_t *, sfTime);
+void dementor_kill(tekleague_t *, sfVector2f, sfVector2f *, unsigned int *);
+int play(tekleague_t *);
 
 
 
     /* Statistics */
 
-void all_time_best_score(my_hunter_t *);
-int stats(my_hunter_t *);
+void all_time_best_score(tekleague_t *);
+int stats(tekleague_t *);
 
 
 
     /* Settings */
 
-int settings(my_hunter_t *);
+int settings(tekleague_t *);
 
 
 
     /* How to play */
 
-int how_to_play(my_hunter_t *);
+int how_to_play(tekleague_t *);
 
 
 
     /* Credits */
 
-int credits(my_hunter_t *);
+int credits(tekleague_t *);
 
 
 
@@ -193,6 +193,6 @@ int credits(my_hunter_t *);
 
 int check_files(void);
 void print_help(void);
-int my_hunter(int, char **, char **);
+int tekleague(int, char **, char **);
 
 #endif /* !MY_HUNTER_H_ */

@@ -2,44 +2,44 @@
 ** EPITECH PROJECT, 2022
 ** MyHunter
 ** File description:
-** destroy_my_hunter
+** destroy_tekleague
 */
 
 #include "../include/my_hunter.h"
 
-static void destroy_play(my_hunter_t *mh)
+static void destroy_play(tekleague_t *jam)
 {
-    sfClock_destroy(mh->mh_p.clock);
-    sfSprite_destroy(mh->mh_p.wand);
-    sfSprite_destroy(mh->mh_p.dementor);
-    sfTexture_destroy(mh->mh_p.wand_texture);
-    sfTexture_destroy(mh->mh_p.dementor_texture);
-    sfText_destroy(mh->mh_p.score_);
-    sfText_destroy(mh->mh_p.score);
+    sfClock_destroy(jam->jam_p.clock);
+    sfSprite_destroy(jam->jam_p.wand);
+    sfSprite_destroy(jam->jam_p.dementor);
+    sfTexture_destroy(jam->jam_p.wand_texture);
+    sfTexture_destroy(jam->jam_p.dementor_texture);
+    sfText_destroy(jam->jam_p.score_);
+    sfText_destroy(jam->jam_p.score);
 }
 
-static void destroy_title_screen(my_hunter_t *mh)
+static void destroy_title_screen(tekleague_t *jam)
 {
-    sfText_destroy(mh->mh_ts.title);
-    sfText_destroy(mh->mh_ts.play);
-    sfText_destroy(mh->mh_ts.stats);
-    sfText_destroy(mh->mh_ts.settings);
-    sfText_destroy(mh->mh_ts.how_to_play);
-    sfText_destroy(mh->mh_ts.credits);
-    sfText_destroy(mh->mh_ts.quit);
+    sfText_destroy(jam->jam_ts.title);
+    sfText_destroy(jam->jam_ts.play);
+    sfText_destroy(jam->jam_ts.stats);
+    sfText_destroy(jam->jam_ts.settings);
+    sfText_destroy(jam->jam_ts.how_to_play);
+    sfText_destroy(jam->jam_ts.credits);
+    sfText_destroy(jam->jam_ts.quit);
 }
 
-void destroy_my_hunter(my_hunter_t *mh)
+void destroy_tekleague(tekleague_t *jam)
 {
-    destroy_play(mh);
-    destroy_title_screen(mh);
-    sfSprite_destroy(mh->star_back);
-    sfTexture_destroy(mh->star_back_texture);
-    sfSprite_destroy(mh->hogwarts_bigroom);
-    sfTexture_destroy(mh->hogwarts_bigroom_texture);
-    sfSprite_destroy(mh->background);
-    sfTexture_destroy(mh->background_texture);
-    sfFont_destroy(mh->font);
-    sfMusic_destroy(mh->music);
-    sfRenderWindow_destroy(mh->window);
+    destroy_play(jam);
+    destroy_title_screen(jam);
+    sfSprite_destroy(jam->star_back);
+    sfTexture_destroy(jam->star_back_texture);
+    sfSprite_destroy(jam->hogwarts_bigroom);
+    sfTexture_destroy(jam->hogwarts_bigroom_texture);
+    sfSprite_destroy(jam->background);
+    sfTexture_destroy(jam->background_texture);
+    sfFont_destroy(jam->font);
+    sfMusic_destroy(jam->music);
+    sfRenderWindow_destroy(jam->window);
 }

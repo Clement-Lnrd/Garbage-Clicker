@@ -22,14 +22,14 @@ long long int get_best_score(void)
     return (score);
 }
 
-void all_time_best_score(my_hunter_t *mh)
+void all_time_best_score(tekleague_t *jam)
 {
     FILE *file = fopen("data/stats", "w+");
     int fd = open("data/stats", O_RDWR);
-    ssize_t size = my_intlen(mh->highest_score);
+    ssize_t size = my_intlen(jam->highest_score);
     char *score = malloc(sizeof(char) * 21);
 
-    score = my_int_to_str(mh->highest_score, score);
+    score = my_int_to_str(jam->highest_score, score);
     write(fd, score, size);
     write(fd, "\n", 1);
     free(score);
