@@ -2,4 +2,4 @@ libmy.a
 *.o
 *.a
 my_hunter
-
+data/*
