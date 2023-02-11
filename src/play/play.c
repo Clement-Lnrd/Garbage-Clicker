@@ -12,7 +12,7 @@ static void handle_waste_bags(jam_t *jam, sfVector2i pos, unsigned int *fails)
     sfTime time = sfClock_getElapsedTime(jam->jam_p.clock);
 
     for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
-        jam->jam_p.waste_bags[i].pos.x = (((time.microseconds / 2000) - 250) + time.microseconds / 8000);
+        jam->jam_p.waste_bags[i].pos.x = (((time.microseconds / jam->jam_p.waste_bags[i].mov.x) - 250) + time.microseconds / 8000) + jam->jam_p.waste_bags[i].initial_pos.x;
         sfSprite_setPosition(jam->jam_p.vacuum, sfVector2i_to_sfVector2f(pos));
         sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags[i].pos);
         waste_bags_pick_up(jam, sfVector2i_to_sfVector2f(pos), fails, i);
@@ -59,8 +59,11 @@ static int render_play(jam_t *jam)
 
     jam->score = 0;
     for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
-        // TODO change this line
-        jam->jam_p.waste_bags[i].pos = (sfVector2f){(rand() % 300 * -1), (rand() % 880)}; // {rand() % 1920, -100}; fait spawn le bag en haut de l'écran à une position x random
+        jam->jam_p.waste_bags[i].initial_pos = (sfVector2f){(rand() % 1500 * -1), (rand() % 880 + 40)};
+        jam->jam_p.waste_bags[i].mov = (sfVector2f){(rand() % 1200 + 1500), 0};
+        if (i != 0 and jam->jam_p.waste_bags[i].initial_pos.y - jam->jam_p.waste_bags[i - 1].initial_pos.y < 40)
+            jam->jam_p.waste_bags[i].initial_pos.x += 60;
+        jam->jam_p.waste_bags[i].pos = jam->jam_p.waste_bags[i].initial_pos;
         sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags[i].pos);
     }
     while (sfRenderWindow_isOpen(jam->window)) {

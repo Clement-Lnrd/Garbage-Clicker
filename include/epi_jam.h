@@ -28,6 +28,8 @@
     #define sfVector2i_to_sfVector2u(v) (sfVector2u){v.x, v.y}
     #define sfVector2u_to_sfVector2i(v) (sfVector2i){v.x, v.y}
 
+    #define and &&
+
     /* Epitech JAM struct */
 
 // Settings structure
@@ -59,6 +61,7 @@ typedef struct jam_title_screen {
 typedef struct sprite {
     sfSprite *sprite;
     sfVector2f pos;
+    sfVector2f initial_pos;
     sfVector2f mov;
 } sprite_t;
 

@@ -28,6 +28,9 @@ static void create_waste_bags(jam_t *jam)
 
     for (u_int i = 0; i < 5; ++i) {
         make_sprite(&jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags_texture);
+        jam->jam_p.waste_bags[i].pos = (sfVector2f){0, 0};
+        jam->jam_p.waste_bags[i].initial_pos = (sfVector2f){0, 0};
+        jam->jam_p.waste_bags[i].mov = (sfVector2f){0, 0};
         sfSprite_setTextureRect(jam->jam_p.waste_bags[i].sprite, (sfIntRect){(rand() % 5) * 28, 0, 28, 27});
         sfSprite_setScale(jam->jam_p.waste_bags[i].sprite, (sfVector2f){2, 2});
     }
