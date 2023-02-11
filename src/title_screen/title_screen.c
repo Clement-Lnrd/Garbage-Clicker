@@ -1,16 +1,16 @@
 /*
 ** EPITECH PROJECT, 2022
-** My Hunter
+** JAM
 ** File description:
 ** title_screen
 */
 
-#include "../../include/my_hunter.h"
+#include "../../include/epi_jam.h"
 
 // int CSFML vector to position window at left top of screen
-sc sfVector2i pos_window = {0, 0};
+static const sfVector2i pos_window = {0, 0};
 
-static void draw_elements(tekleague_t *jam)
+static void draw_elements(jam_t *jam)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
     sfRenderWindow_drawSprite(jam->window, jam->background, NULL);
@@ -23,14 +23,13 @@ static void draw_elements(tekleague_t *jam)
     sfRenderWindow_drawText(jam->window, jam->jam_ts.quit, NULL);
 }
 
-int render_title_screen(tekleague_t *jam)
+int render_title_screen(jam_t *jam)
 {
     sfVector2i pos = {0};
 
     sfRenderWindow_setMouseCursorVisible(jam->window, sfTrue);
     while (sfRenderWindow_isOpen(jam->window)) {
-        while (sfRenderWindow_pollEvent(jam->window, &jam->event))
-            (jam->event.type == sfEvtClosed) ? (sRW_cl(jam->window)) : (0);
+        check_closing_event(jam);
         draw_elements(jam);
         pos = sfMouse_getPositionRenderWindow(jam->window);
         if (set_buttons_colors(pos, jam) == 84)
@@ -42,7 +41,7 @@ int render_title_screen(tekleague_t *jam)
 
 int title_screen(void)
 {
-    tekleague_t *jam = malloc(sizeof(tekleague_t));
+    jam_t *jam = malloc(sizeof(jam_t));
 
     srand(time(NULL));
     set_struct(jam);
@@ -57,7 +56,7 @@ int title_screen(void)
     render_elements(jam);
     if (render_title_screen(jam) == 84)
         return (84);
-    destroy_tekleague(jam);
+    destroy_jam(jam);
     free(jam);
     return (0);
 }

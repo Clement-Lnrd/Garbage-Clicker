@@ -1,31 +1,31 @@
 ##
 ## EPITECH PROJECT, 2022
-## MyHunter
+## JAM
 ## File description:
 ## Makefile
 ##
 
-SRC				=	src/utilities/check_files.c	    \
-					src/utilities/print_help.c		\
-					src/destroy_my_hunter.c			\
-					src/set_struct.c				\
-					src/display_elements.c			\
-					src/render_elements.c			\
-					src/play/dementors.c			\
-					src/play/play.c					\
-					src/settings/settings.c			\
-					src/stats/all_time_best_score.c	\
-					src/stats/stats.c				\
-					src/how_to_play/how_to_play.c	\
-					src/credits/credits.c			\
-					src/title_screen/buttons.c		\
-					src/title_screen/title_screen.c	\
-					src/my_hunter.c					\
+SRC				=	src/utilities/check_files.c	    	\
+					src/utilities/check_closing_event.c	\
+					src/destroy_epi_jam.c				\
+					src/set_struct.c					\
+					src/display_elements.c				\
+					src/render_elements.c				\
+					src/play/dementors.c				\
+					src/play/play.c						\
+					src/settings/settings.c				\
+					src/stats/all_time_best_score.c		\
+					src/stats/stats.c					\
+					src/how_to_play/how_to_play.c		\
+					src/credits/credits.c				\
+					src/title_screen/buttons.c			\
+					src/title_screen/title_screen.c		\
+					src/epi_jam.c						\
 					src/main.c
 
 OBJ				=	$(SRC:.c=.o)
 
-NAME			=	my_hunter
+NAME			=	epi_jam
 
 W_FLAGS			=	-W -Wall -Wextra
 

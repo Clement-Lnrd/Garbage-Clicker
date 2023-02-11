@@ -1,30 +1,30 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** render_elements
 ** Display sprites, texts, set textures rectangles, and set elements positions
 */
 
-#include "../include/my_hunter.h"
+#include "../include/epi_jam.h"
 
 // float CSFML vector to resize magic wand
-sc sfVector2f size_wand = {0.5, 0.5};
+static const sfVector2f size_wand = {0.5, 0.5};
 
-sc sfColor gold = {255, 215, 0, 255};
+static const sfColor gold = {255, 215, 0, 255};
 
-static void set_textures_rects(tekleague_t *jam)
+static void set_textures_rects(jam_t *jam)
 {
     sfSprite_setTextureRect(jam->jam_p.wand, jam->jam_p.wands);
     sfSprite_setTextureRect(jam->jam_p.dementor, jam->jam_p.dementors);
 }
 
-static void scale_elements(tekleague_t *jam)
+static void scale_elements(jam_t *jam)
 {
     sfSprite_scale(jam->jam_p.wand, size_wand);
 }
 
-static void set_elements_positions_2(tekleague_t *jam)
+static void set_elements_positions_2(jam_t *jam)
 {
     sfText_setPosition(jam->jam_st.last_score, jam->jam_st.pos_last_score);
     sfText_setPosition(jam->jam_st.sbs, jam->jam_st.pos_sbs);
@@ -43,7 +43,7 @@ static void set_elements_positions_2(tekleague_t *jam)
     sfText_setColor(jam->jam_se.wip, gold);
 }
 
-static void set_elements_positions(tekleague_t *jam)
+static void set_elements_positions(jam_t *jam)
 {
     sfSprite_setPosition(jam->jam_p.wand, jam->jam_p.pos_wand);
     sfText_setPosition(jam->jam_ts.title, jam->jam_ts.pos_title);
@@ -66,7 +66,7 @@ static void set_elements_positions(tekleague_t *jam)
     set_elements_positions_2(jam);
 }
 
-void render_elements(tekleague_t *jam)
+void render_elements(jam_t *jam)
 {
     display_elements(jam);
     set_textures_rects(jam);

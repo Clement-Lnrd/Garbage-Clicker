@@ -1,23 +1,23 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** set_struct
-** Initialise My Hunter structure
-** jam_ts = tekleague_title_screen structure, for title screen
-** jam_p = tekleague_play structure, for play menu
+** Initialise Epitech JAM structure
+** jam_ts = jam_title_screen structure, for title screen
+** jam_p = jam_play structure, for play menu
 */
 
-#include "../include/my_hunter.h"
+#include "../include/epi_jam.h"
 
 // const array which contains all assets used in this file
-sc char *assets[] = {"assets/sounds/musics/hp_theme.ogg"
+static const char *assets[] = {"assets/sounds/musics/hp_theme.ogg"
     , "assets/fonts/hp.ttf", "assets/textures/background.png"
     , "assets/textures/wand.png", "assets/textures/dementors.png"
     , "assets/textures/hogwarts_bigroom.png"
     , "assets/textures/star_back.png", "assets/textures/htp.png", 0};
 
-sc tekleague_t tmp = {
+static const jam_t tmp = {
     .score = 0,
     .highest_score = 0,
     .jam_ts.pos_title = {680, -20},
@@ -45,20 +45,20 @@ sc tekleague_t tmp = {
     .jam_se.pos_wip = {850, 500}
 };
 
-void set_struct(tekleague_t *jam)
+void set_struct(jam_t *jam)
 {
     sfVideoMode mode = {1920, 1080, 32};
 
     (*jam) = tmp;
-    jam->window = sfRenderWindow_create(mode, "My Hunter", sfClose, NULL);
+    jam->window = sfRenderWindow_create(mode, "Epitech JAM", sfClose, NULL);
     jam->music = sfMusic_createFromFile(assets[0]);
     jam->font = sfFont_createFromFile(assets[1]);
-    jam->background_texture = textureFromFile(assets[2], NULL);
-    jam->hogwarts_bigroom_texture = textureFromFile(assets[5], NULL);
-    jam->star_back_texture = textureFromFile(assets[6], NULL);
-    jam->jam_p.wand_texture = textureFromFile(assets[3], NULL);
-    jam->jam_p.dementor_texture = textureFromFile(assets[4], NULL);
-    jam->jam_htp.htp_texture = textureFromFile(assets[7], NULL);
+    jam->background_texture = sfTexture_createFromFile(assets[2], NULL);
+    jam->hogwarts_bigroom_texture = sfTexture_createFromFile(assets[5], NULL);
+    jam->star_back_texture = sfTexture_createFromFile(assets[6], NULL);
+    jam->jam_p.wand_texture = sfTexture_createFromFile(assets[3], NULL);
+    jam->jam_p.dementor_texture = sfTexture_createFromFile(assets[4], NULL);
+    jam->jam_htp.htp_texture = sfTexture_createFromFile(assets[7], NULL);
     jam->jam_p.clock = sfClock_create();
     jam->all_time_best_score = get_best_score();
 }

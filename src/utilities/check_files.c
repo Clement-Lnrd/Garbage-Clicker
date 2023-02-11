@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** check_files
 */
 
-#include "../../include/my_hunter.h"
+#include "../../include/epi_jam.h"
 
-sc char *assets[] = {"assets/textures/background.png"
+static const char *assets[] = {"assets/textures/background.png"
     , "assets/textures/dementors.png", "assets/textures/hearts.png"
     , "assets/textures/wand.png", "assets/sounds/musics/hp_theme.ogg"
     , "assets/fonts/hp.ttf", "assets/textures/hogwarts_bigroom.png"

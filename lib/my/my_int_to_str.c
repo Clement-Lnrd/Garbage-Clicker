@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** my_int_to_str
 */

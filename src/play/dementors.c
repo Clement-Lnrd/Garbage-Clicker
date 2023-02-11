@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** dementors
 */
 
-#include "../../include/my_hunter.h"
+#include "../../include/epi_jam.h"
 
-void animate_dementor(tekleague_t *jam, sfTime time)
+void animate_dementor(jam_t *jam, sfTime time)
 {
     if (time.microseconds % 100 > 0 && time.microseconds % 100 < 201) {
         jam->jam_p.dementors.left = (jam->jam_p.dementors.left + 118) % 708;
@@ -15,7 +15,7 @@ void animate_dementor(tekleague_t *jam, sfTime time)
     }
 }
 
-void dementor_kill(tekleague_t *jam, sfVector2f fpos, sfVector2f *dpos
+void dementor_kill(jam_t *jam, sfVector2f fpos, sfVector2f *dpos
     , unsigned int *fails)
 {
     sfFloatRect kpos = sfSprite_getGlobalBounds(jam->jam_p.dementor);
@@ -24,7 +24,7 @@ void dementor_kill(tekleague_t *jam, sfVector2f fpos, sfVector2f *dpos
 
     sfSprite_setPosition(jam->jam_p.dementor, tmp);
     if ((sfFloatRect_contains(&kpos, pos.x, pos.y)
-        && jam->event.type == sEMBP && jam->event.mouseButton.button == sML)
+        && jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
         || dpos->x >= 1920) {
         sfClock_restart(jam->jam_p.clock);
         dpos->y = (rand() % 880);

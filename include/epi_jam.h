@@ -1,12 +1,12 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
-** tekleague
+** epi_jam header
 */
 
-#ifndef MY_HUNTER_H_
-    #define MY_HUNTER_H_
+#ifndef EPI_JAM_H_
+    #define EPI_JAM_H_
 
     /* Include libraries */
 
@@ -15,23 +15,16 @@
     #include <time.h>
     #include <fcntl.h>
     #include <stdio.h>
-    #include "my_csfml.h"
+    #include <SFML/Audio.h>
+    #include <SFML/Graphics.h>
+    #include <SFML/System.h>
+    #include <SFML/Window.h>
     #include "my.h"
 
-    #define UNUSE(var) (void)(var)
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Macro for static const
-    ///
-    ////////////////////////////////////////////////////////////
-    #define sc static const
-
-
-
-    /* My Hunter struct */
+    /* Epitech JAM struct */
 
 // Settings structure
-typedef struct {
+typedef struct settings {
     sfVideoMode resolution;
     int fps;
     float volume;
@@ -39,7 +32,7 @@ typedef struct {
 } settings_t;
 
 // Title screen menu structure
-typedef struct {
+typedef struct jam_title_screen {
     sfText *title;
     sfText *play;
     sfText *stats;
@@ -57,7 +50,7 @@ typedef struct {
 } jam_title_screen_t;
 
 // Play menu structure
-typedef struct {
+typedef struct jam_play {
     sfText *score_;
     sfText *score;
     sfClock *clock;
@@ -73,7 +66,7 @@ typedef struct {
 } jam_play_t;
 
 // Statistics menu structure
-typedef struct {
+typedef struct jam_stats {
     sfText *title;
     sfText *last_score;
     sfText *sbs;                       // Session best score
@@ -91,7 +84,7 @@ typedef struct {
 } jam_stats_t;
 
 // Settings menu structure
-typedef struct {
+typedef struct jam_settings {
     // sfText *title;
     // sfText *resolution;
     // sfText *fps;
@@ -102,13 +95,13 @@ typedef struct {
 } jam_settings_t;
 
 // How to play menu structure
-typedef struct {
+typedef struct jam_how_to_play {
     sfTexture *htp_texture;
     sfSprite *htp;
 } jam_how_to_play;
 
 // Credits meu structure
-typedef struct {
+typedef struct jam_credits {
     sfText *title;
     sfText *person;
     sfText *other;
@@ -117,8 +110,8 @@ typedef struct {
     sfVector2f pos_other;
 } jam_credits;
 
-// Principal My Hunter structure
-typedef struct {
+// Principal Epitech JAM structure
+typedef struct jam {
     long long int score;
     long long int highest_score;
     long long int all_time_best_score;
@@ -138,61 +131,26 @@ typedef struct {
     jam_settings_t jam_se;
     jam_how_to_play jam_htp;
     jam_credits jam_c;
-} tekleague_t;
+} jam_t;
 
-
-
-void set_struct(tekleague_t *);
-void display_elements(tekleague_t *);
-void render_elements(tekleague_t *);
-
-    /* Title screen */
-
-void destroy_tekleague(tekleague_t *);
-int set_buttons_colors(sfVector2i, tekleague_t *);
-int render_title_screen(tekleague_t *);
+void set_struct(jam_t *);
+void display_elements(jam_t *);
+void render_elements(jam_t *);
+void destroy_jam(jam_t *);
+int set_buttons_colors(sfVector2i, jam_t *);
+int render_title_screen(jam_t *);
 int title_screen(void);
-
-
-
-    /* Play */
-
 long long int get_best_score(void);
-void animate_dementor(tekleague_t *, sfTime);
-void dementor_kill(tekleague_t *, sfVector2f, sfVector2f *, unsigned int *);
-int play(tekleague_t *);
-
-
-
-    /* Statistics */
-
-void all_time_best_score(tekleague_t *);
-int stats(tekleague_t *);
-
-
-
-    /* Settings */
-
-int settings(tekleague_t *);
-
-
-
-    /* How to play */
-
-int how_to_play(tekleague_t *);
-
-
-
-    /* Credits */
-
-int credits(tekleague_t *);
-
-
-
-    /* My hunter */
-
+void animate_dementor(jam_t *, sfTime);
+void dementor_kill(jam_t *, sfVector2f, sfVector2f *, unsigned int *);
+int play(jam_t *);
+void all_time_best_score(jam_t *);
+int stats(jam_t *);
+int settings(jam_t *);
+int how_to_play(jam_t *);
+int credits(jam_t *);
+void check_closing_event(jam_t *jam);
 int check_files(void);
-void print_help(void);
-int tekleague(int, char **, char **);
+int jam(int, char **, char **);
 
-#endif /* !MY_HUNTER_H_ */
+#endif /* !EPI_JAM_H_ */

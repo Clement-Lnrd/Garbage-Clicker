@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** all_time_best_score
 */
 
-#include "../../include/my_hunter.h"
+#include "../../include/epi_jam.h"
 
 long long int get_best_score(void)
 {
@@ -22,7 +22,7 @@ long long int get_best_score(void)
     return (score);
 }
 
-void all_time_best_score(tekleague_t *jam)
+void all_time_best_score(jam_t *jam)
 {
     FILE *file = fopen("data/stats", "w+");
     int fd = open("data/stats", O_RDWR);

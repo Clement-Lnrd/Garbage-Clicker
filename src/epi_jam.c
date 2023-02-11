@@ -1,22 +1,20 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
-** tekleague
+** epi_jam
 */
 
-#include "../include/my_hunter.h"
+#include "../include/epi_jam.h"
 
-int tekleague(int ac, char **av, char **env)
+int jam(__attribute__((unused)) int ac, __attribute__((unused)) char **av,
+    char **env)
 {
     if (env[0] == NULL) {
         write(2, "Please launch this program with an environment!\n", 48);
         return (84);
     }
-    if (ac == 2 && my_strcmp(av[1], "-h") == 0) {
-        print_help();
-        return (0);
-    } else if (check_files() == 0)
+    if (check_files() == 0)
         return (title_screen());
     return (84);
 }

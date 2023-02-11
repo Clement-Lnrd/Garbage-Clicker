@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** My Hunter
+** JAM
 ** File description:
 ** play
 */
 
-#include "../../include/my_hunter.h"
+#include "../../include/epi_jam.h"
 
-static void handle_dementors(tekleague_t *jam, sfVector2i pos, sfVector2f *dpos
+static void handle_dementors(jam_t *jam, sfVector2i pos, sfVector2f *dpos
     , unsigned int *fails)
 {
     sfTime time = sfClock_getElapsedTime(jam->jam_p.clock);
@@ -16,7 +16,7 @@ static void handle_dementors(tekleague_t *jam, sfVector2i pos, sfVector2f *dpos
     dpos->x = (((time.microseconds / 2000) - 250) + time.microseconds / 8000);
     sfSprite_setPosition(jam->jam_p.wand, fpos);
     sfSprite_setPosition(jam->jam_p.dementor, (*dpos));
-    if (jam->event.type == sEMBP && jam->event.mouseButton.button == sML)
+    if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
         jam->jam_p.wands.left = 488;
     else
         jam->jam_p.wands.left = 0;
@@ -25,7 +25,7 @@ static void handle_dementors(tekleague_t *jam, sfVector2i pos, sfVector2f *dpos
     animate_dementor(jam, time);
 }
 
-static void draw_elements(tekleague_t *jam, char *score)
+static void draw_elements(jam_t *jam, char *score)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
     sfRenderWindow_drawSprite(jam->window, jam->hogwarts_bigroom, NULL);
@@ -36,7 +36,7 @@ static void draw_elements(tekleague_t *jam, char *score)
     sfRenderWindow_drawText(jam->window, jam->jam_p.score, NULL);
 }
 
-static int leave_play(tekleague_t *jam, unsigned int err, unsigned int fails)
+static int leave_play(jam_t *jam, unsigned int err, unsigned int fails)
 {
     if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue || fails == 3) {
         if (jam->highest_score < jam->score)
@@ -50,7 +50,7 @@ static int leave_play(tekleague_t *jam, unsigned int err, unsigned int fails)
     return (err);
 }
 
-static int render_play(tekleague_t *jam)
+static int render_play(jam_t *jam)
 {
     unsigned int err = 0;
     unsigned int fails = 0;
@@ -61,8 +61,7 @@ static int render_play(tekleague_t *jam)
     jam->score = 0;
     sfSprite_setPosition(jam->jam_p.dementor, dpos);
     while (sfRenderWindow_isOpen(jam->window)) {
-        while (sfRenderWindow_pollEvent(jam->window, &jam->event))
-            (jam->event.type == sfEvtClosed) ? (sRW_cl(jam->window)) : (0);
+        check_closing_event(jam);
         draw_elements(jam, score);
         pos = sfMouse_getPositionRenderWindow(jam->window);
         handle_dementors(jam, pos, &dpos, &fails);
@@ -73,7 +72,7 @@ static int render_play(tekleague_t *jam)
     return (err);
 }
 
-int play(tekleague_t *jam)
+int play(jam_t *jam)
 {
     sfRenderWindow_setMouseCursorVisible(jam->window, sfFalse);
     sfClock_restart(jam->jam_p.clock);

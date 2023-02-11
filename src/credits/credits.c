@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** credits
 */
 
-#include "../../include/my_hunter.h"
+#include "../../include/epi_jam.h"
 
-static void draw_elements(tekleague_t *jam)
+static void draw_elements(jam_t *jam)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
     sfRenderWindow_drawSprite(jam->window, jam->star_back, NULL);
@@ -17,13 +17,12 @@ static void draw_elements(tekleague_t *jam)
     sfRenderWindow_drawText(jam->window, jam->jam_c.other, NULL);
 }
 
-static int render_credits(tekleague_t *jam)
+static int render_credits(jam_t *jam)
 {
     unsigned int err = 0;
 
     while (sfRenderWindow_isOpen(jam->window)) {
-        while (sfRenderWindow_pollEvent(jam->window, &jam->event))
-            (jam->event.type == sfEvtClosed) ? (sRW_cl(jam->window)) : (0);
+        check_closing_event(jam);
         draw_elements(jam);
         if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue)
             err = (render_title_screen(jam) == 84) ? (84) : (0);
@@ -32,7 +31,7 @@ static int render_credits(tekleague_t *jam)
     return (err);
 }
 
-int credits(tekleague_t *jam)
+int credits(jam_t *jam)
 {
     if (render_credits(jam) == 84)
         return (84);

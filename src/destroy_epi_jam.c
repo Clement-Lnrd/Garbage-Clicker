@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
-** destroy_tekleague
+** destroy_epi_jam
 */
 
-#include "../include/my_hunter.h"
+#include "../include/epi_jam.h"
 
-static void destroy_play(tekleague_t *jam)
+static void destroy_play(jam_t *jam)
 {
     sfClock_destroy(jam->jam_p.clock);
     sfSprite_destroy(jam->jam_p.wand);
@@ -18,7 +18,7 @@ static void destroy_play(tekleague_t *jam)
     sfText_destroy(jam->jam_p.score);
 }
 
-static void destroy_title_screen(tekleague_t *jam)
+static void destroy_title_screen(jam_t *jam)
 {
     sfText_destroy(jam->jam_ts.title);
     sfText_destroy(jam->jam_ts.play);
@@ -29,7 +29,7 @@ static void destroy_title_screen(tekleague_t *jam)
     sfText_destroy(jam->jam_ts.quit);
 }
 
-void destroy_tekleague(tekleague_t *jam)
+void destroy_jam(jam_t *jam)
 {
     destroy_play(jam);
     destroy_title_screen(jam);

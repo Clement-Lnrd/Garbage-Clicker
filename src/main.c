@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2022
-** MyHunter
+** JAM
 ** File description:
 ** main
 */
 
-#include "../include/my_hunter.h"
+#include "../include/epi_jam.h"
 
 int main(int ac, char **av, char **env)
 {
-    return (tekleague(ac, av, env));
+    return (jam(ac, av, env));
 }
