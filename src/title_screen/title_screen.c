@@ -45,8 +45,9 @@ int title_screen(void)
 
     srand(time(NULL));
     set_struct(jam);
-    if (!jam->jam_p.clock || !jam->jam_p.vacuum_texture || !jam->jam_p.dementor_texture
-        || !jam->window || !jam->background_texture || !jam->font || !jam->music
+    if (!jam->jam_p.clock || !jam->jam_p.vacuum_texture
+        || !jam->jam_p.waste_bags_texture || !jam->window
+        || !jam->background_texture || !jam->font || !jam->music
         || !jam->game_background_texture)
         return (84);
     sfRenderWindow_setFramerateLimit(jam->window, 60);

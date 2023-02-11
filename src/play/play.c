@@ -7,7 +7,7 @@
 
 #include "../../include/epi_jam.h"
 
-static void handle_dementors(jam_t *jam, sfVector2i pos, sfVector2f *dpos
+static void handle_waste_bags(jam_t *jam, sfVector2i pos, sfVector2f *dpos
     , unsigned int *fails)
 {
     sfTime time = sfClock_getElapsedTime(jam->jam_p.clock);
@@ -15,16 +15,15 @@ static void handle_dementors(jam_t *jam, sfVector2i pos, sfVector2f *dpos
 
     dpos->x = (((time.microseconds / 2000) - 250) + time.microseconds / 8000);
     sfSprite_setPosition(jam->jam_p.vacuum, fpos);
-    sfSprite_setPosition(jam->jam_p.dementor, (*dpos));
-    dementor_kill(jam, fpos, dpos, fails);
-    animate_dementor(jam, time);
+    sfSprite_setPosition(jam->jam_p.waste_bags, (*dpos));
+    waste_bags_pick_up(jam, fpos, dpos, fails);
 }
 
 static void draw_elements(jam_t *jam, char *score)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
     sfRenderWindow_drawSprite(jam->window, jam->game_background, NULL);
-    sfRenderWindow_drawSprite(jam->window, jam->jam_p.dementor, NULL);
+    sfRenderWindow_drawSprite(jam->window, jam->jam_p.waste_bags, NULL);
     sfRenderWindow_drawSprite(jam->window, jam->jam_p.vacuum, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_p.score_, NULL);
     sfText_setString(jam->jam_p.score, my_int_to_str(jam->score, score));
@@ -54,12 +53,12 @@ static int render_play(jam_t *jam)
     char *score = malloc(sizeof(char) * 21);
 
     jam->score = 0;
-    sfSprite_setPosition(jam->jam_p.dementor, dpos);
+    sfSprite_setPosition(jam->jam_p.waste_bags, dpos);
     while (sfRenderWindow_isOpen(jam->window)) {
         check_closing_event(jam);
         draw_elements(jam, score);
         pos = sfMouse_getPositionRenderWindow(jam->window);
-        handle_dementors(jam, pos, &dpos, &fails);
+        handle_waste_bags(jam, pos, &dpos, &fails);
         err = leave_play(jam, err, fails);
         sfRenderWindow_display(jam->window);
     }

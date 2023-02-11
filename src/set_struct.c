@@ -13,8 +13,9 @@
 // const array which contains all assets used in this file
 static const char *assets[] = {"assets/sounds/musics/hp_theme.ogg"
     , "assets/fonts/marvel.ttf", "assets/textures/background.png"
-    , "assets/textures/vacuum.png", "assets/textures/dementors.png"
-    , "assets/textures/game_background.png", "assets/textures/htp.png", 0};
+    , "assets/textures/vacuum.png", "assets/textures/waste_bags.png"
+    , "assets/textures/game_background.png", "assets/textures/htp.png",
+    "assets/textures/waste_bags.png", NULL};
 
 static const jam_t tmp = {
     .score = 0,
@@ -29,7 +30,6 @@ static const jam_t tmp = {
     .jam_p.pos_vacuum = {1320, 580},
     .jam_p.pos_score_ = {20, 0},
     .jam_p.pos_score = {170, 0},
-    .jam_p.dementors = {0, 0, 118, 80},
     .jam_c.pos_title = {830, 350},
     .jam_c.pos_person = {770, 500},
     .jam_c.pos_other = {810, 600},
@@ -54,7 +54,7 @@ void set_struct(jam_t *jam)
     jam->background_texture = sfTexture_createFromFile(assets[2], NULL);
     jam->game_background_texture = sfTexture_createFromFile(assets[5], NULL);
     jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets[3], NULL);
-    jam->jam_p.dementor_texture = sfTexture_createFromFile(assets[4], NULL);
+    jam->jam_p.waste_bags_texture = sfTexture_createFromFile(assets[4], NULL);
     jam->jam_htp.htp_texture = sfTexture_createFromFile(assets[6], NULL);
     jam->jam_p.clock = sfClock_create();
     jam->all_time_best_score = get_best_score();

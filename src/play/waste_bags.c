@@ -2,27 +2,19 @@
 ** EPITECH PROJECT, 2022
 ** JAM
 ** File description:
-** dementors
+** waste_bags
 */
 
 #include "../../include/epi_jam.h"
 
-void animate_dementor(jam_t *jam, sfTime time)
-{
-    if (time.microseconds % 100 > 0 && time.microseconds % 100 < 201) {
-        jam->jam_p.dementors.left = (jam->jam_p.dementors.left + 118) % 708;
-        sfSprite_setTextureRect(jam->jam_p.dementor, jam->jam_p.dementors);
-    }
-}
-
-void dementor_kill(jam_t *jam, sfVector2f fpos, sfVector2f *dpos
+void waste_bags_pick_up(jam_t *jam, sfVector2f fpos, sfVector2f *dpos
     , unsigned int *fails)
 {
-    sfFloatRect kpos = sfSprite_getGlobalBounds(jam->jam_p.dementor);
+    sfFloatRect kpos = sfSprite_getGlobalBounds(jam->jam_p.waste_bags);
     sfVector2f pos = {fpos.x + 5, fpos.y + 5};
     sfVector2f tmp = {kpos.left, kpos.top};
 
-    sfSprite_setPosition(jam->jam_p.dementor, tmp);
+    sfSprite_setPosition(jam->jam_p.waste_bags, tmp);
     if ((sfFloatRect_contains(&kpos, pos.x, pos.y)
         && jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
         || dpos->x >= 1920) {

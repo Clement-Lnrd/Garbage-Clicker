@@ -55,13 +55,12 @@ typedef struct jam_play {
     sfText *score;
     sfClock *clock;
     sfTexture *vacuum_texture;
-    sfTexture *dementor_texture;
+    sfTexture *waste_bags_texture;
     sfSprite *vacuum;
-    sfSprite *dementor;
+    sfSprite *waste_bags;
     sfVector2f pos_score_;
     sfVector2f pos_score;
     sfVector2f pos_vacuum;
-    sfIntRect dementors;
 } jam_play_t;
 
 // Statistics menu structure
@@ -138,8 +137,7 @@ int set_buttons_colors(sfVector2i, jam_t *);
 int render_title_screen(jam_t *);
 int title_screen(void);
 long long int get_best_score(void);
-void animate_dementor(jam_t *, sfTime);
-void dementor_kill(jam_t *, sfVector2f, sfVector2f *, unsigned int *);
+void waste_bags_pick_up(jam_t *, sfVector2f, sfVector2f *, unsigned int *);
 int play(jam_t *);
 void all_time_best_score(jam_t *);
 int stats(jam_t *);

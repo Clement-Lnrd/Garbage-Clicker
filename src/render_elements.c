@@ -8,11 +8,6 @@
 
 #include "../include/epi_jam.h"
 
-static void set_textures_rects(jam_t *jam)
-{
-    sfSprite_setTextureRect(jam->jam_p.dementor, jam->jam_p.dementors);
-}
-
 static void set_elements_positions_2(jam_t *jam)
 {
     sfText_setColor(jam->jam_c.title, sfWhite);
@@ -59,6 +54,5 @@ static void set_elements_positions(jam_t *jam)
 void render_elements(jam_t *jam)
 {
     display_elements(jam);
-    set_textures_rects(jam);
     set_elements_positions(jam);
 }

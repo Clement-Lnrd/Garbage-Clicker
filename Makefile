@@ -11,7 +11,7 @@ SRC				=	src/utilities/check_files.c	    	\
 					src/set_struct.c					\
 					src/display_elements.c				\
 					src/render_elements.c				\
-					src/play/dementors.c				\
+					src/play/waste_bags.c				\
 					src/play/play.c						\
 					src/settings/settings.c				\
 					src/stats/all_time_best_score.c		\
