@@ -7,8 +7,7 @@
 
 #include "../../include/epi_jam.h"
 
-void waste_bags_pick_up(jam_t *jam, sfVector2f fpos, unsigned int *fails,
-    u_int i)
+void waste_bags_pick_up(jam_t *jam, sfVector2f fpos, unsigned int *fails, u_int i)
 {
     sfFloatRect kpos = sfSprite_getGlobalBounds(jam->jam_p.waste_bags[i].sprite);
     sfVector2f pos = {fpos.x + 5, fpos.y + 5};
