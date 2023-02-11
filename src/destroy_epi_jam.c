@@ -11,11 +11,15 @@ static void destroy_play(jam_t *jam)
 {
     sfClock_destroy(jam->jam_p.clock);
     sfSprite_destroy(jam->jam_p.vacuum);
-    sfSprite_destroy(jam->jam_p.waste_bags);
+    for (u_int i = 0; jam->jam_p.waste_bags[i]; ++i)
+        sfSprite_destroy(jam->jam_p.waste_bags[i]);
+    free(jam->jam_p.waste_bags);
     sfTexture_destroy(jam->jam_p.vacuum_texture);
     sfTexture_destroy(jam->jam_p.waste_bags_texture);
     sfText_destroy(jam->jam_p.score_);
     sfText_destroy(jam->jam_p.score);
+    sfText_destroy(jam->jam_p.fail_);
+    sfText_destroy(jam->jam_p.fail);
 }
 
 static void destroy_title_screen(jam_t *jam)

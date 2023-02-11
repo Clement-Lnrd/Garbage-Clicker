@@ -5,6 +5,7 @@
 ** render_elements_2
 */
 
+#include <sys/types.h>
 #include "../include/epi_jam.h"
 
 static void display_sprite(sfSprite **sprite, sfTexture *texture)
@@ -19,6 +20,18 @@ static void display_text(sfText **text, const char *str, sfFont *font, int size)
     sfText_setString((*text), str);
     sfText_setFont((*text), font);
     sfText_setCharacterSize((*text), size);
+}
+
+static void create_waste_bags(jam_t *jam)
+{
+    jam->jam_p.waste_bags = malloc(sizeof(sfSprite *) * 6);
+
+    for (u_int i = 0; i < 5; ++i) {
+        display_sprite(&jam->jam_p.waste_bags[i], jam->jam_p.waste_bags_texture);
+        sfSprite_setTextureRect(jam->jam_p.waste_bags[i], (sfIntRect){(rand() % 5) * 28, 0, 28, 27});
+        sfSprite_setScale(jam->jam_p.waste_bags[i], (sfVector2f){2, 2});
+    }
+    jam->jam_p.waste_bags[5] = NULL;
 }
 
 static void display_elements_2(jam_t *jam)
@@ -38,7 +51,7 @@ void display_elements(jam_t *jam)
     display_sprite(&jam->background, jam->background_texture);
     display_sprite(&jam->game_background, jam->game_background_texture);
     display_sprite(&jam->jam_p.vacuum, jam->jam_p.vacuum_texture);
-    display_sprite(&jam->jam_p.waste_bags, jam->jam_p.waste_bags_texture);
+    create_waste_bags(jam);
     display_sprite(&jam->jam_htp.htp, jam->jam_htp.htp_texture);
     display_text(&jam->jam_ts.title, "Epitech JAM", jam->font, 200);
     display_text(&jam->jam_ts.play, "Play", jam->font, 150);
@@ -49,6 +62,8 @@ void display_elements(jam_t *jam)
     display_text(&jam->jam_ts.quit, "Quit", jam->font, 100);
     display_text(&jam->jam_p.score_, "Score:", jam->font, 70);
     display_text(&jam->jam_p.score, "0", jam->font, 70);
+    display_text(&jam->jam_p.fail_, "Fails:", jam->font, 70);
+    display_text(&jam->jam_p.fail, "0", jam->font, 70);
     display_text(&jam->jam_c.title, "Credits", jam->font, 100);
     display_text(&jam->jam_c.person, "Clement Lienard", jam->font, 70);
     display_text(&jam->jam_c.other, "Warner Bros", jam->font, 70);

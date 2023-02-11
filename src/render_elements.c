@@ -33,7 +33,7 @@ static void set_elements_positions_2(jam_t *jam)
 
 static void set_elements_positions(jam_t *jam)
 {
-    sfSprite_setOrigin(jam->jam_p.vacuum, (sfVector2f){130, 130});
+    sfSprite_setOrigin(jam->jam_p.vacuum, (sfVector2f){120, 130});
     sfSprite_setPosition(jam->jam_p.vacuum, jam->jam_p.pos_vacuum);
     sfText_setPosition(jam->jam_ts.title, jam->jam_ts.pos_title);
     sfText_setPosition(jam->jam_ts.play, jam->jam_ts.pos_play);
@@ -44,6 +44,8 @@ static void set_elements_positions(jam_t *jam)
     sfText_setPosition(jam->jam_ts.quit, jam->jam_ts.pos_quit);
     sfText_setPosition(jam->jam_p.score_, jam->jam_p.pos_score_);
     sfText_setPosition(jam->jam_p.score, jam->jam_p.pos_score);
+    sfText_setPosition(jam->jam_p.fail, jam->jam_p.pos_fail);
+    sfText_setPosition(jam->jam_p.fail_, jam->jam_p.pos_fail_);
     sfText_setPosition(jam->jam_c.title, jam->jam_c.pos_title);
     sfText_setPosition(jam->jam_c.person, jam->jam_c.pos_person);
     sfText_setPosition(jam->jam_c.other, jam->jam_c.pos_other);

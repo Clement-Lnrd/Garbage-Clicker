@@ -53,13 +53,17 @@ typedef struct jam_title_screen {
 typedef struct jam_play {
     sfText *score_;
     sfText *score;
+    sfText *fail_;
+    sfText *fail;
     sfClock *clock;
     sfTexture *vacuum_texture;
     sfTexture *waste_bags_texture;
     sfSprite *vacuum;
-    sfSprite *waste_bags;
+    sfSprite **waste_bags;
     sfVector2f pos_score_;
     sfVector2f pos_score;
+    sfVector2f pos_fail_;
+    sfVector2f pos_fail;
     sfVector2f pos_vacuum;
 } jam_play_t;
 
