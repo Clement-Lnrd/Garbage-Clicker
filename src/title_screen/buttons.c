@@ -7,6 +7,8 @@
 
 #include "../../include/epi_jam.h"
 
+static const sfColor blue = {81, 140, 202, 255};
+
 int set_play_color(sfVector2i pos, jam_t *jam)
 {
     sfFloatRect p = sfText_getGlobalBounds(jam->jam_ts.play);
@@ -14,7 +16,7 @@ int set_play_color(sfVector2i pos, jam_t *jam)
 
     if (pos.x > p.left && pos.x < (p.left + p.width)
         && pos.y > p.top && pos.y < (p.top + p.height)) {
-        sfText_setColor(jam->jam_ts.play, sfYellow);
+        sfText_setColor(jam->jam_ts.play, blue);
         if (jam->event.type == sfEvtMouseButtonPressed
             && jam->event.mouseButton.button == sfMouseLeft)
             err = (play(jam) == 84) ? (84) : (0);
@@ -31,7 +33,7 @@ int set_stats_settings_color(sfVector2i pos, jam_t *jam)
 
     if (pos.x > st.left && pos.x < (st.left + st.width)
         && pos.y > st.top && pos.y < (st.top + st.height)) {
-        sfText_setColor(jam->jam_ts.stats, sfYellow);
+        sfText_setColor(jam->jam_ts.stats, blue);
         if (jam->event.type == sfEvtMouseButtonPressed
             && jam->event.mouseButton.button == sfMouseLeft)
             err = (stats(jam) == 84) ? (84) : (0);
@@ -39,7 +41,7 @@ int set_stats_settings_color(sfVector2i pos, jam_t *jam)
         sfText_setColor(jam->jam_ts.stats, sfWhite);
     if (pos.x > se.left && pos.x < (se.left + se.width)
         && pos.y > se.top && pos.y < (se.top + se.height)) {
-        sfText_setColor(jam->jam_ts.settings, sfYellow);
+        sfText_setColor(jam->jam_ts.settings, blue);
         if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
             err = (settings(jam) == 84) ? (84) : (0);
     } else
@@ -55,14 +57,14 @@ int set_htp_credits_color(sfVector2i pos, jam_t *jam)
 
     if (pos.x > h.left && pos.x < (h.left + h.width)
         && pos.y > h.top && pos.y < (h.top + h.height)) {
-        sfText_setColor(jam->jam_ts.how_to_play, sfYellow);
+        sfText_setColor(jam->jam_ts.how_to_play, blue);
         if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
             err = (how_to_play(jam) == 84) ? (84) : (0);
     } else
         sfText_setColor(jam->jam_ts.how_to_play, sfWhite);
     if (pos.x > c.left && pos.x < (c.left + c.width)
         && pos.y > c.top && pos.y < (c.top + c.height)) {
-        sfText_setColor(jam->jam_ts.credits, sfYellow);
+        sfText_setColor(jam->jam_ts.credits, blue);
         if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
             err = (credits(jam) == 84) ? (84) : (0);
     } else
@@ -76,7 +78,7 @@ void set_quit_color(sfVector2i pos, jam_t *jam)
 
     if (pos.x > q.left && pos.x < (q.left + q.width)
         && pos.y > q.top && pos.y < (q.top + q.height)) {
-        sfText_setColor(jam->jam_ts.quit, sfRed);
+        sfText_setColor(jam->jam_ts.quit, (sfColor){226, 54, 54, 255});
         if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
             sfRenderWindow_close(jam->window);
     } else
