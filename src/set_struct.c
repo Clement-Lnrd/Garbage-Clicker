@@ -13,7 +13,7 @@
 // const array which contains all assets used in this file
 static const char *assets[] = {"assets/sounds/musics/hp_theme.ogg"
     , "assets/fonts/marvel.ttf", "assets/textures/background.png"
-    , "assets/textures/wand.png", "assets/textures/dementors.png"
+    , "assets/textures/vacuum.png", "assets/textures/dementors.png"
     , "assets/textures/game_background.png", "assets/textures/htp.png", 0};
 
 static const jam_t tmp = {
@@ -26,10 +26,9 @@ static const jam_t tmp = {
     .jam_ts.pos_how_to_play = {575, 600},
     .jam_ts.pos_credits = {1005, 600},
     .jam_ts.pos_quit = {870, 725},
-    .jam_p.pos_wand = {1320, 580},
+    .jam_p.pos_vacuum = {1320, 580},
     .jam_p.pos_score_ = {20, 0},
-    .jam_p.pos_score = {160, 0},
-    .jam_p.wands = {0, 0, 470, 411},
+    .jam_p.pos_score = {170, 0},
     .jam_p.dementors = {0, 0, 118, 80},
     .jam_c.pos_title = {830, 350},
     .jam_c.pos_person = {770, 500},
@@ -38,9 +37,9 @@ static const jam_t tmp = {
     .jam_st.pos_last_score = {700, 450},
     .jam_st.pos_sbs = {700, 550},
     .jam_st.pos_atbs = {700, 650},
-    .jam_st.pos_last_score_ = {930, 450},
-    .jam_st.pos_sbs_ = {1080, 550},
-    .jam_st.pos_atbs_ = {1100, 650},
+    .jam_st.pos_last_score_ = {945, 450},
+    .jam_st.pos_sbs_ = {1125, 550},
+    .jam_st.pos_atbs_ = {1125, 650},
     .jam_se.pos_wip = {850, 500}
 };
 
@@ -54,7 +53,7 @@ void set_struct(jam_t *jam)
     jam->font = sfFont_createFromFile(assets[1]);
     jam->background_texture = sfTexture_createFromFile(assets[2], NULL);
     jam->game_background_texture = sfTexture_createFromFile(assets[5], NULL);
-    jam->jam_p.wand_texture = sfTexture_createFromFile(assets[3], NULL);
+    jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets[3], NULL);
     jam->jam_p.dementor_texture = sfTexture_createFromFile(assets[4], NULL);
     jam->jam_htp.htp_texture = sfTexture_createFromFile(assets[6], NULL);
     jam->jam_p.clock = sfClock_create();
