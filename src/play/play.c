@@ -14,13 +14,8 @@ static void handle_dementors(jam_t *jam, sfVector2i pos, sfVector2f *dpos
     sfVector2f fpos = {pos.x - 20, pos.y - 13};
 
     dpos->x = (((time.microseconds / 2000) - 250) + time.microseconds / 8000);
-    sfSprite_setPosition(jam->jam_p.wand, fpos);
+    sfSprite_setPosition(jam->jam_p.vacuum, fpos);
     sfSprite_setPosition(jam->jam_p.dementor, (*dpos));
-    if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
-        jam->jam_p.wands.left = 488;
-    else
-        jam->jam_p.wands.left = 0;
-    sfSprite_setTextureRect(jam->jam_p.wand, jam->jam_p.wands);
     dementor_kill(jam, fpos, dpos, fails);
     animate_dementor(jam, time);
 }
@@ -30,7 +25,7 @@ static void draw_elements(jam_t *jam, char *score)
     sfRenderWindow_clear(jam->window, sfBlack);
     sfRenderWindow_drawSprite(jam->window, jam->game_background, NULL);
     sfRenderWindow_drawSprite(jam->window, jam->jam_p.dementor, NULL);
-    sfRenderWindow_drawSprite(jam->window, jam->jam_p.wand, NULL);
+    sfRenderWindow_drawSprite(jam->window, jam->jam_p.vacuum, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_p.score_, NULL);
     sfText_setString(jam->jam_p.score, my_int_to_str(jam->score, score));
     sfRenderWindow_drawText(jam->window, jam->jam_p.score, NULL);
