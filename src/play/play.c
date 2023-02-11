@@ -28,7 +28,7 @@ static void handle_dementors(jam_t *jam, sfVector2i pos, sfVector2f *dpos
 static void draw_elements(jam_t *jam, char *score)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
-    sfRenderWindow_drawSprite(jam->window, jam->hogwarts_bigroom, NULL);
+    sfRenderWindow_drawSprite(jam->window, jam->game_background, NULL);
     sfRenderWindow_drawSprite(jam->window, jam->jam_p.dementor, NULL);
     sfRenderWindow_drawSprite(jam->window, jam->jam_p.wand, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_p.score_, NULL);

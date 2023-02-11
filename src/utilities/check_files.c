@@ -7,11 +7,10 @@
 
 #include "../../include/epi_jam.h"
 
-static const char *assets[] = {"assets/textures/background.png"
-    , "assets/textures/dementors.png", "assets/textures/hearts.png"
-    , "assets/textures/wand.png", "assets/sounds/musics/hp_theme.ogg"
-    , "assets/fonts/hp.ttf", "assets/textures/hogwarts_bigroom.png"
-    , "assets/textures/star_back.png", "assets/textures/htp.png", 0};
+static const char *assets[] = {"assets/textures/background.png",
+    "assets/textures/dementors.png", "assets/textures/wand.png",
+    "assets/sounds/musics/hp_theme.ogg", "assets/fonts/marvel.ttf",
+    "assets/textures/game_background.png", "assets/textures/htp.png", 0};
 
 static void check_stats(unsigned int *err)
 {

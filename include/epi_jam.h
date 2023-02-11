@@ -121,10 +121,8 @@ typedef struct jam {
     sfEvent event;
     sfTexture *background_texture;
     sfSprite *background;
-    sfTexture *hogwarts_bigroom_texture;
-    sfSprite *hogwarts_bigroom;
-    sfTexture *star_back_texture;
-    sfSprite *star_back;
+    sfTexture *game_background_texture;
+    sfSprite *game_background;
     jam_title_screen_t jam_ts;
     jam_play_t jam_p;
     jam_stats_t jam_st;

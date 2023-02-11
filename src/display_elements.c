@@ -36,8 +36,7 @@ static void display_elements_2(jam_t *jam)
 void display_elements(jam_t *jam)
 {
     display_sprite(&jam->background, jam->background_texture);
-    display_sprite(&jam->hogwarts_bigroom, jam->hogwarts_bigroom_texture);
-    display_sprite(&jam->star_back, jam->star_back_texture);
+    display_sprite(&jam->game_background, jam->game_background_texture);
     display_sprite(&jam->jam_p.wand, jam->jam_p.wand_texture);
     display_sprite(&jam->jam_p.dementor, jam->jam_p.dementor_texture);
     display_sprite(&jam->jam_htp.htp, jam->jam_htp.htp_texture);

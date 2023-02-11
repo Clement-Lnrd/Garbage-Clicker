@@ -33,12 +33,11 @@ void destroy_jam(jam_t *jam)
 {
     destroy_play(jam);
     destroy_title_screen(jam);
-    sfSprite_destroy(jam->star_back);
-    sfTexture_destroy(jam->star_back_texture);
-    sfSprite_destroy(jam->hogwarts_bigroom);
-    sfTexture_destroy(jam->hogwarts_bigroom_texture);
     sfSprite_destroy(jam->background);
     sfTexture_destroy(jam->background_texture);
+    sfSprite_destroy(jam->game_background);
+    sfTexture_destroy(jam->game_background_texture);
+    sfSprite_destroy(jam->background);
     sfFont_destroy(jam->font);
     sfMusic_destroy(jam->music);
     sfRenderWindow_destroy(jam->window);

@@ -12,10 +12,9 @@
 
 // const array which contains all assets used in this file
 static const char *assets[] = {"assets/sounds/musics/hp_theme.ogg"
-    , "assets/fonts/hp.ttf", "assets/textures/background.png"
+    , "assets/fonts/marvel.ttf", "assets/textures/background.png"
     , "assets/textures/wand.png", "assets/textures/dementors.png"
-    , "assets/textures/hogwarts_bigroom.png"
-    , "assets/textures/star_back.png", "assets/textures/htp.png", 0};
+    , "assets/textures/game_background.png", "assets/textures/htp.png", 0};
 
 static const jam_t tmp = {
     .score = 0,
@@ -54,11 +53,10 @@ void set_struct(jam_t *jam)
     jam->music = sfMusic_createFromFile(assets[0]);
     jam->font = sfFont_createFromFile(assets[1]);
     jam->background_texture = sfTexture_createFromFile(assets[2], NULL);
-    jam->hogwarts_bigroom_texture = sfTexture_createFromFile(assets[5], NULL);
-    jam->star_back_texture = sfTexture_createFromFile(assets[6], NULL);
+    jam->game_background_texture = sfTexture_createFromFile(assets[5], NULL);
     jam->jam_p.wand_texture = sfTexture_createFromFile(assets[3], NULL);
     jam->jam_p.dementor_texture = sfTexture_createFromFile(assets[4], NULL);
-    jam->jam_htp.htp_texture = sfTexture_createFromFile(assets[7], NULL);
+    jam->jam_htp.htp_texture = sfTexture_createFromFile(assets[6], NULL);
     jam->jam_p.clock = sfClock_create();
     jam->all_time_best_score = get_best_score();
 }

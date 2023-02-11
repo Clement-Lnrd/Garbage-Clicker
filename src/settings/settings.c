@@ -10,7 +10,7 @@
 static void draw_elements(jam_t *jam)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
-    sfRenderWindow_drawSprite(jam->window, jam->star_back, NULL);
+    sfRenderWindow_drawSprite(jam->window, jam->background, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_ts.title, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_se.wip, NULL);
 }
