@@ -24,14 +24,14 @@ static void display_text(sfText **text, const char *str, sfFont *font, int size)
 
 static void create_waste_bags(jam_t *jam)
 {
-    jam->jam_p.waste_bags = malloc(sizeof(sfSprite *) * 6);
+    jam->jam_p.waste_bags = malloc(sizeof(sprite_t) * 6);
 
     for (u_int i = 0; i < 5; ++i) {
-        display_sprite(&jam->jam_p.waste_bags[i], jam->jam_p.waste_bags_texture);
-        sfSprite_setTextureRect(jam->jam_p.waste_bags[i], (sfIntRect){(rand() % 5) * 28, 0, 28, 27});
-        sfSprite_setScale(jam->jam_p.waste_bags[i], (sfVector2f){2, 2});
+        display_sprite(&jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags_texture);
+        sfSprite_setTextureRect(jam->jam_p.waste_bags[i].sprite, (sfIntRect){(rand() % 5) * 28, 0, 28, 27});
+        sfSprite_setScale(jam->jam_p.waste_bags[i].sprite, (sfVector2f){2, 2});
     }
-    jam->jam_p.waste_bags[5] = NULL;
+    jam->jam_p.waste_bags[5] = (sprite_t){NULL, {0, 0}, {0, 0}};
 }
 
 static void display_elements_2(jam_t *jam)

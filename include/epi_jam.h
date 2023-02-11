@@ -21,6 +21,13 @@
     #include <SFML/Window.h>
     #include "my.h"
 
+    #define sfVector2f_to_sfVector2i(v) (sfVector2i){v.x, v.y}
+    #define sfVector2i_to_sfVector2f(v) (sfVector2f){v.x, v.y}
+    #define sfVector2f_to_sfVector2u(v) (sfVector2u){v.x, v.y}
+    #define sfVector2u_to_sfVector2f(v) (sfVector2f){v.x, v.y}
+    #define sfVector2i_to_sfVector2u(v) (sfVector2u){v.x, v.y}
+    #define sfVector2u_to_sfVector2i(v) (sfVector2i){v.x, v.y}
+
     /* Epitech JAM struct */
 
 // Settings structure
@@ -49,6 +56,12 @@ typedef struct jam_title_screen {
     sfVector2f pos_quit;
 } jam_title_screen_t;
 
+typedef struct sprite {
+    sfSprite *sprite;
+    sfVector2f pos;
+    sfVector2f mov;
+} sprite_t;
+
 // Play menu structure
 typedef struct jam_play {
     sfText *score_;
@@ -59,7 +72,7 @@ typedef struct jam_play {
     sfTexture *vacuum_texture;
     sfTexture *waste_bags_texture;
     sfSprite *vacuum;
-    sfSprite **waste_bags;
+    sprite_t *waste_bags;
     sfVector2f pos_score_;
     sfVector2f pos_score;
     sfVector2f pos_fail_;
@@ -141,7 +154,7 @@ int set_buttons_colors(sfVector2i, jam_t *);
 int render_title_screen(jam_t *);
 int title_screen(void);
 long long int get_best_score(void);
-void waste_bags_pick_up(jam_t *, sfVector2f, sfVector2f *, unsigned int *);
+void waste_bags_pick_up(jam_t *, sfVector2f, unsigned int *, u_int);
 int play(jam_t *);
 void all_time_best_score(jam_t *);
 int stats(jam_t *);

@@ -7,23 +7,24 @@
 
 #include "../../include/epi_jam.h"
 
-static void handle_waste_bags(jam_t *jam, sfVector2i pos, sfVector2f *dpos
-    , unsigned int *fails)
+static void handle_waste_bags(jam_t *jam, sfVector2i pos, unsigned int *fails)
 {
     sfTime time = sfClock_getElapsedTime(jam->jam_p.clock);
-    sfVector2f fpos = {pos.x - 20, pos.y - 13};
 
-    dpos->x = (((time.microseconds / 2000) - 250) + time.microseconds / 8000);
-    sfSprite_setPosition(jam->jam_p.vacuum, fpos);
-    sfSprite_setPosition(jam->jam_p.waste_bags[0], (*dpos));
-    waste_bags_pick_up(jam, fpos, dpos, fails);
+    for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
+        jam->jam_p.waste_bags[i].pos.x = (((time.microseconds / 2000) - 250) + time.microseconds / 8000);
+        sfSprite_setPosition(jam->jam_p.vacuum, sfVector2i_to_sfVector2f(pos));
+        sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags[i].pos);
+        waste_bags_pick_up(jam, sfVector2i_to_sfVector2f(pos), fails, i);
+    }
 }
 
 static void draw_elements(jam_t *jam, char *score, char *fails, unsigned int *fails_nb)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
     sfRenderWindow_drawSprite(jam->window, jam->game_background, NULL);
-    sfRenderWindow_drawSprite(jam->window, jam->jam_p.waste_bags[0], NULL);
+    for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i)
+        sfRenderWindow_drawSprite(jam->window, jam->jam_p.waste_bags[i].sprite, NULL);
     sfRenderWindow_drawSprite(jam->window, jam->jam_p.vacuum, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_p.score_, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_p.fail_, NULL);
@@ -35,7 +36,8 @@ static void draw_elements(jam_t *jam, char *score, char *fails, unsigned int *fa
 
 static int leave_play(jam_t *jam, unsigned int err, unsigned int fails)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue || fails > 5) {
+    // TODO replace 500 5 or another raisonable number
+    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue || fails > 500) {
         if (jam->highest_score < jam->score)
             jam->highest_score = jam->score;
         if (jam->all_time_best_score < jam->score) {
@@ -52,18 +54,20 @@ static int render_play(jam_t *jam)
     unsigned int err = 0;
     unsigned int fails = 0;
     sfVector2i pos = {0};
-    // TODO : change this line
-    sfVector2f dpos = {-250, (rand() % 880)}; // {rand() % 1920, -100}; fait spawn le bag en haut de l'écran à une position x random
     char *score = malloc(sizeof(char) * 21);
     char *fails_char = malloc(sizeof(char) * 21);
 
     jam->score = 0;
-    sfSprite_setPosition(jam->jam_p.waste_bags[0], dpos);
+    for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
+        // TODO change this line
+        jam->jam_p.waste_bags[i].pos = (sfVector2f){(rand() % 300 * -1), (rand() % 880)}; // {rand() % 1920, -100}; fait spawn le bag en haut de l'écran à une position x random
+        sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags[i].pos);
+    }
     while (sfRenderWindow_isOpen(jam->window)) {
         check_closing_event(jam);
         draw_elements(jam, score, fails_char, &fails);
         pos = sfMouse_getPositionRenderWindow(jam->window);
-        handle_waste_bags(jam, pos, &dpos, &fails);
+        handle_waste_bags(jam, pos, &fails);
         err = leave_play(jam, err, fails);
         sfRenderWindow_display(jam->window);
     }
