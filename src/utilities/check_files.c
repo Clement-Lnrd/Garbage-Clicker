@@ -8,7 +8,7 @@
 #include "../../include/epi_jam.h"
 
 static const char *assets[] = {"assets/textures/background.png",
-    "assets/textures/dementors.png", "assets/textures/wand.png",
+    "assets/textures/dementors.png", "assets/textures/vacuum.png",
     "assets/sounds/musics/hp_theme.ogg", "assets/fonts/marvel.ttf",
     "assets/textures/game_background.png", "assets/textures/htp.png", 0};
 

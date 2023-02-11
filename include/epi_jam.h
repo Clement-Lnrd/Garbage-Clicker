@@ -54,14 +54,13 @@ typedef struct jam_play {
     sfText *score_;
     sfText *score;
     sfClock *clock;
-    sfTexture *wand_texture;
+    sfTexture *vacuum_texture;
     sfTexture *dementor_texture;
-    sfSprite *wand;
+    sfSprite *vacuum;
     sfSprite *dementor;
     sfVector2f pos_score_;
     sfVector2f pos_score;
-    sfVector2f pos_wand;
-    sfIntRect wands;
+    sfVector2f pos_vacuum;
     sfIntRect dementors;
 } jam_play_t;
 

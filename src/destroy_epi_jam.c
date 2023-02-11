@@ -10,9 +10,9 @@
 static void destroy_play(jam_t *jam)
 {
     sfClock_destroy(jam->jam_p.clock);
-    sfSprite_destroy(jam->jam_p.wand);
+    sfSprite_destroy(jam->jam_p.vacuum);
     sfSprite_destroy(jam->jam_p.dementor);
-    sfTexture_destroy(jam->jam_p.wand_texture);
+    sfTexture_destroy(jam->jam_p.vacuum_texture);
     sfTexture_destroy(jam->jam_p.dementor_texture);
     sfText_destroy(jam->jam_p.score_);
     sfText_destroy(jam->jam_p.score);
@@ -37,7 +37,6 @@ void destroy_jam(jam_t *jam)
     sfTexture_destroy(jam->background_texture);
     sfSprite_destroy(jam->game_background);
     sfTexture_destroy(jam->game_background_texture);
-    sfSprite_destroy(jam->background);
     sfFont_destroy(jam->font);
     sfMusic_destroy(jam->music);
     sfRenderWindow_destroy(jam->window);

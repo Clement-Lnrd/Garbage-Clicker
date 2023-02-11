@@ -37,7 +37,7 @@ void display_elements(jam_t *jam)
 {
     display_sprite(&jam->background, jam->background_texture);
     display_sprite(&jam->game_background, jam->game_background_texture);
-    display_sprite(&jam->jam_p.wand, jam->jam_p.wand_texture);
+    display_sprite(&jam->jam_p.vacuum, jam->jam_p.vacuum_texture);
     display_sprite(&jam->jam_p.dementor, jam->jam_p.dementor_texture);
     display_sprite(&jam->jam_htp.htp, jam->jam_htp.htp_texture);
     display_text(&jam->jam_ts.title, "Epitech JAM", jam->font, 200);
