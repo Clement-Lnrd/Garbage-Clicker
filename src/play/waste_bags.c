@@ -16,18 +16,6 @@ static bool contain(sfFloatRect rect, sfVector2f pos)
     return (false);
 }
 
-static void debug_hitbox(jam_t *jam, sfFloatRect bag_rect)
-{
-    sfRectangleShape *rect = sfRectangleShape_create();
-    sfRectangleShape_setPosition(rect, (sfVector2f){bag_rect.left, bag_rect.top});
-    sfRectangleShape_setSize(rect, (sfVector2f){bag_rect.width, bag_rect.height});
-    sfRectangleShape_setFillColor(rect, sfTransparent);
-    sfRectangleShape_setOutlineThickness(rect, 10);
-    sfRectangleShape_setOutlineColor(rect, sfRed);
-    sfRenderWindow_drawRectangleShape(jam->window, rect, NULL);
-    sfRectangleShape_destroy(rect);
-}
-
 void waste_bags_pick_up(jam_t *jam, unsigned int *fails, u_int i)
 {
     sfVector2f fpos = sfVector2i_to_sfVector2f(sfMouse_getPositionRenderWindow(jam->window));
@@ -47,3 +35,15 @@ void waste_bags_pick_up(jam_t *jam, unsigned int *fails, u_int i)
         (jam->jam_p.waste_bags[i].pos.x >= 1920) ? (++(*fails)) : (++jam->score);
     }
 }
+
+// static void debug_hitbox(jam_t *jam, sfFloatRect bag_rect)
+// {
+//     sfRectangleShape *rect = sfRectangleShape_create();
+//     sfRectangleShape_setPosition(rect, (sfVector2f){bag_rect.left, bag_rect.top});
+//     sfRectangleShape_setSize(rect, (sfVector2f){bag_rect.width, bag_rect.height});
+//     sfRectangleShape_setFillColor(rect, sfTransparent);
+//     sfRectangleShape_setOutlineThickness(rect, 10);
+//     sfRectangleShape_setOutlineColor(rect, sfRed);
+//     sfRenderWindow_drawRectangleShape(jam->window, rect, NULL);
+//     sfRectangleShape_destroy(rect);
+// }
