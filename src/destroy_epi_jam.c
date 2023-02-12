@@ -28,8 +28,6 @@ static void destroy_title_screen(jam_t *jam)
     sfText_destroy(jam->jam_ts.title);
     sfText_destroy(jam->jam_ts.play);
     sfText_destroy(jam->jam_ts.stats);
-    sfText_destroy(jam->jam_ts.settings);
-    sfText_destroy(jam->jam_ts.how_to_play);
     sfText_destroy(jam->jam_ts.credits);
     sfText_destroy(jam->jam_ts.quit);
 }

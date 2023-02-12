@@ -12,10 +12,8 @@ SRC				=	src/utilities/check_closing_event.c	\
 					src/render_elements.c				\
 					src/play/waste_bags.c				\
 					src/play/play.c						\
-					src/settings/settings.c				\
 					src/stats/all_time_best_score.c		\
 					src/stats/stats.c					\
-					src/how_to_play/how_to_play.c		\
 					src/credits/credits.c				\
 					src/title_screen/buttons.c			\
 					src/title_screen/title_screen.c		\

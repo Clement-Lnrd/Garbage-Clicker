@@ -48,7 +48,6 @@ static void display_elements_2(jam_t *jam)
     make_text(&jam->jam_st.last_score_, "0", jam->font, 70);
     make_text(&jam->jam_st.sbs_, "0", jam->font, 70);
     make_text(&jam->jam_st.atbs_, "0", jam->font, 70);
-    make_text(&jam->jam_se.wip, "WIP", jam->font, 150);
 }
 
 void display_elements(jam_t *jam)
@@ -57,12 +56,9 @@ void display_elements(jam_t *jam)
     make_sprite(&jam->game_background, jam->game_background_texture);
     make_sprite(&jam->jam_p.vacuum, jam->jam_p.vacuum_texture);
     create_waste_bags(jam);
-    make_sprite(&jam->jam_htp.htp, jam->jam_htp.htp_texture);
     make_text(&jam->jam_ts.title, "Epitech JAM", jam->font, 200);
     make_text(&jam->jam_ts.play, "Play", jam->font, 150);
     make_text(&jam->jam_ts.stats, "Statistics", jam->font, 100);
-    make_text(&jam->jam_ts.settings, "Settings", jam->font, 100);
-    make_text(&jam->jam_ts.how_to_play, "How to play", jam->font, 100);
     make_text(&jam->jam_ts.credits, "Credits", jam->font, 100);
     make_text(&jam->jam_ts.quit, "Quit", jam->font, 100);
     make_text(&jam->jam_p.score_, "Score:", jam->font, 70);
@@ -71,6 +67,11 @@ void display_elements(jam_t *jam)
     make_text(&jam->jam_p.fail, "0", jam->font, 70);
     make_text(&jam->jam_c.title, "Credits", jam->font, 100);
     make_text(&jam->jam_c.person, "Clement Lienard", jam->font, 70);
+    make_text(&jam->jam_c.person1, "Clement Lienard", jam->font, 70);
+    make_text(&jam->jam_c.person2, "Clement Lienard", jam->font, 70);
+    make_text(&jam->jam_c.person3, "Clement Lienard", jam->font, 70);
+    make_text(&jam->jam_c.person4, "Clement Lienard", jam->font, 70);
+    make_text(&jam->jam_c.person5, "Clement Lienard", jam->font, 70);
     make_text(&jam->jam_c.other, "Warner Bros", jam->font, 70);
     display_elements_2(jam);
 }

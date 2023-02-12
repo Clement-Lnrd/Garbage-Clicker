@@ -20,15 +20,11 @@ static void set_elements_positions_2(jam_t *jam)
     sfText_setPosition(jam->jam_st.last_score_, jam->jam_st.pos_last_score_);
     sfText_setPosition(jam->jam_st.sbs_, jam->jam_st.pos_sbs_);
     sfText_setPosition(jam->jam_st.atbs_, jam->jam_st.pos_atbs_);
-    sfText_setPosition(jam->jam_se.wip, jam->jam_se.pos_wip);
-    sfSprite_setColor(jam->jam_htp.htp, sfWhite);
-    sfText_setColor(jam->jam_st.last_score, sfWhite);
     sfText_setColor(jam->jam_st.sbs, sfWhite);
     sfText_setColor(jam->jam_st.atbs, sfWhite);
     sfText_setColor(jam->jam_st.last_score_, sfWhite);
     sfText_setColor(jam->jam_st.sbs_, sfWhite);
     sfText_setColor(jam->jam_st.atbs_, sfWhite);
-    sfText_setColor(jam->jam_se.wip, sfWhite);
 }
 
 static void set_elements_positions(jam_t *jam)
@@ -38,8 +34,6 @@ static void set_elements_positions(jam_t *jam)
     sfText_setPosition(jam->jam_ts.title, jam->jam_ts.pos_title);
     sfText_setPosition(jam->jam_ts.play, jam->jam_ts.pos_play);
     sfText_setPosition(jam->jam_ts.stats, jam->jam_ts.pos_stats);
-    sfText_setPosition(jam->jam_ts.settings, jam->jam_ts.pos_settings);
-    sfText_setPosition(jam->jam_ts.how_to_play, jam->jam_ts.pos_how_to_play);
     sfText_setPosition(jam->jam_ts.credits, jam->jam_ts.pos_credits);
     sfText_setPosition(jam->jam_ts.quit, jam->jam_ts.pos_quit);
     sfText_setPosition(jam->jam_p.score_, jam->jam_p.pos_score_);

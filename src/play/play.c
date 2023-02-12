@@ -7,16 +7,20 @@
 
 #include "../../include/epi_jam.h"
 
-static void handle_waste_bags(jam_t *jam, sfVector2i pos, unsigned int *fails)
+static void handle_waste_bags(jam_t *jam, unsigned int *fails)
 {
+    sfVector2i pos = {0};
     sfTime time;
 
     for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
         time = sfClock_getElapsedTime(jam->jam_p.waste_bags[i].clock);
         jam->jam_p.waste_bags[i].pos.x = (((time.microseconds / jam->jam_p.waste_bags[i].mov.x) - 250) + time.microseconds / 8000) + jam->jam_p.waste_bags[i].initial_pos.x;
+        pos = sfMouse_getPositionRenderWindow(jam->window);
         sfSprite_setPosition(jam->jam_p.vacuum, sfVector2i_to_sfVector2f(pos));
         sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags[i].pos);
-        waste_bags_pick_up(jam, sfVector2i_to_sfVector2f(pos), fails, i);
+        if (jam->jam_p.waste_bags[i].pos.x <= -50 && jam->jam_p.waste_bags[i].pos.x >= -55)
+            sfSprite_setTextureRect(jam->jam_p.waste_bags[i].sprite, (sfIntRect){(rand() % 5) * 28, 0, 28, 27});
+        waste_bags_pick_up(jam, fails, i);
     }
 }
 
@@ -53,14 +57,13 @@ static int render_play(jam_t *jam)
 {
     unsigned int err = 0;
     unsigned int fails = 0;
-    sfVector2i pos = {0};
     char *score = malloc(sizeof(char) * 21);
     char *fails_char = malloc(sizeof(char) * 21);
 
     jam->score = 0;
     for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
         jam->jam_p.waste_bags[i].initial_pos = (sfVector2f){(rand() % 1500 * -1), (rand() % 880 + 40)};
-        jam->jam_p.waste_bags[i].mov = (sfVector2f){(rand() % 1200 + 3000), 0};
+        jam->jam_p.waste_bags[i].mov = (sfVector2f){(rand() % 1200 + (rand() % 1500 + 1500)), 0};
         if (i != 0 and jam->jam_p.waste_bags[i].initial_pos.y - jam->jam_p.waste_bags[i - 1].initial_pos.y < 40)
             jam->jam_p.waste_bags[i].initial_pos.x += 60;
         jam->jam_p.waste_bags[i].pos = jam->jam_p.waste_bags[i].initial_pos;
@@ -69,8 +72,7 @@ static int render_play(jam_t *jam)
     while (sfRenderWindow_isOpen(jam->window)) {
         check_closing_event(jam);
         draw_elements(jam, score, fails_char, &fails);
-        pos = sfMouse_getPositionRenderWindow(jam->window);
-        handle_waste_bags(jam, pos, &fails);
+        handle_waste_bags(jam, &fails);
         err = leave_play(jam, err, fails);
         sfRenderWindow_display(jam->window);
     }

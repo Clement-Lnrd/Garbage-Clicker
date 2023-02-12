@@ -14,6 +14,11 @@ static void draw_elements(jam_t *jam)
     sfRenderWindow_drawText(jam->window, jam->jam_ts.title, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_c.title, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_c.person, NULL);
+    sfRenderWindow_drawText(jam->window, jam->jam_c.person1, NULL);
+    sfRenderWindow_drawText(jam->window, jam->jam_c.person2, NULL);
+    sfRenderWindow_drawText(jam->window, jam->jam_c.person3, NULL);
+    sfRenderWindow_drawText(jam->window, jam->jam_c.person4, NULL);
+    sfRenderWindow_drawText(jam->window, jam->jam_c.person5, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_c.other, NULL);
 }
 

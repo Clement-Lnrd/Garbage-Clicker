@@ -32,28 +32,16 @@
 
     /* Epitech JAM struct */
 
-// Settings structure
-typedef struct settings {
-    sfVideoMode resolution;
-    int fps;
-    float volume;
-    int difficulty;
-} settings_t;
-
 // Title screen menu structure
 typedef struct jam_title_screen {
     sfText *title;
     sfText *play;
     sfText *stats;
-    sfText *settings;
-    sfText *how_to_play;
     sfText *credits;
     sfText *quit;
     sfVector2f pos_title;
     sfVector2f pos_play;
     sfVector2f pos_stats;
-    sfVector2f pos_settings;
-    sfVector2f pos_how_to_play;
     sfVector2f pos_credits;
     sfVector2f pos_quit;
 } jam_title_screen_t;
@@ -102,30 +90,23 @@ typedef struct jam_stats {
     sfVector2f pos_atbs_;
 } jam_stats_t;
 
-// Settings menu structure
-typedef struct jam_settings {
-    // sfText *title;
-    // sfText *resolution;
-    // sfText *fps;
-    // sfText *volume;
-    // sfText *difficulty;
-    sfText *wip;
-    sfVector2f pos_wip;
-} jam_settings_t;
-
-// How to play menu structure
-typedef struct jam_how_to_play {
-    sfTexture *htp_texture;
-    sfSprite *htp;
-} jam_how_to_play;
-
 // Credits meu structure
 typedef struct jam_credits {
     sfText *title;
     sfText *person;
+    sfText *person1;
+    sfText *person2;
+    sfText *person3;
+    sfText *person4;
+    sfText *person5;
     sfText *other;
     sfVector2f pos_title;
     sfVector2f pos_person;
+    sfVector2f pos_person1;
+    sfVector2f pos_person2;
+    sfVector2f pos_person3;
+    sfVector2f pos_person4;
+    sfVector2f pos_person5;
     sfVector2f pos_other;
 } jam_credits;
 
@@ -145,8 +126,6 @@ typedef struct jam {
     jam_title_screen_t jam_ts;
     jam_play_t jam_p;
     jam_stats_t jam_st;
-    jam_settings_t jam_se;
-    jam_how_to_play jam_htp;
     jam_credits jam_c;
 } jam_t;
 
@@ -158,12 +137,10 @@ int set_buttons_colors(sfVector2i, jam_t *);
 int render_title_screen(jam_t *);
 int title_screen(void);
 long long int get_best_score(void);
-void waste_bags_pick_up(jam_t *, sfVector2f, unsigned int *, u_int);
+void waste_bags_pick_up(jam_t *, unsigned int *, u_int);
 int play(jam_t *);
 void all_time_best_score(jam_t *);
 int stats(jam_t *);
-int settings(jam_t *);
-int how_to_play(jam_t *);
 int credits(jam_t *);
 void check_closing_event(jam_t *jam);
 int jam(int, char **, char **);

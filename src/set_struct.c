@@ -11,21 +11,23 @@
 #include "../include/epi_jam.h"
 
 // const array which contains all assets used in this file
-static const char *assets[] = {"assets/sounds/musics/hp_theme.ogg"
-    , "assets/fonts/marvel.ttf", "assets/textures/background.png"
-    , "assets/textures/vacuum.png", "assets/textures/waste_bags.png"
-    , "assets/textures/game_background.png", "assets/textures/htp.png", NULL};
+static const char *assets[] = {"assets/sounds/musics/theme.ogg",
+    "assets/fonts/marvel.ttf", "assets/textures/background.png",
+    "assets/textures/waste_bags.png", "assets/textures/game_background.png",
+    NULL};
+
+static const char *assets_vacuum[] = {"assets/textures/vacuum.png",
+    "assets/textures/vacuum.png", "assets/textures/vacuum.png",
+    "assets/textures/vacuum.png", "assets/textures/vacuum.png", NULL};
 
 static const jam_t tmp = {
     .score = 0,
     .highest_score = 0,
-    .jam_ts.pos_title = {680, -20},
-    .jam_ts.pos_play = {840, 275},
-    .jam_ts.pos_stats = {620, 475},
-    .jam_ts.pos_settings = {980, 475},
-    .jam_ts.pos_how_to_play = {575, 600},
-    .jam_ts.pos_credits = {1005, 600},
-    .jam_ts.pos_quit = {870, 725},
+    .jam_ts.pos_title = {580, -20},
+    .jam_ts.pos_play = {840, 300},
+    .jam_ts.pos_stats = {620, 500},
+    .jam_ts.pos_credits = {1005, 500},
+    .jam_ts.pos_quit = {870, 650},
     .jam_p.pos_vacuum = {1320, 580},
     .jam_p.pos_score_ = {20, 0},
     .jam_p.pos_score = {170, 0},
@@ -40,8 +42,7 @@ static const jam_t tmp = {
     .jam_st.pos_atbs = {700, 650},
     .jam_st.pos_last_score_ = {945, 450},
     .jam_st.pos_sbs_ = {1125, 550},
-    .jam_st.pos_atbs_ = {1125, 650},
-    .jam_se.pos_wip = {850, 500}
+    .jam_st.pos_atbs_ = {1125, 650}
 };
 
 void set_struct(jam_t *jam)
@@ -53,9 +54,8 @@ void set_struct(jam_t *jam)
     jam->music = sfMusic_createFromFile(assets[0]);
     jam->font = sfFont_createFromFile(assets[1]);
     jam->background_texture = sfTexture_createFromFile(assets[2], NULL);
-    jam->game_background_texture = sfTexture_createFromFile(assets[5], NULL);
-    jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets[3], NULL);
-    jam->jam_p.waste_bags_texture = sfTexture_createFromFile(assets[4], NULL);
-    jam->jam_htp.htp_texture = sfTexture_createFromFile(assets[6], NULL);
+    jam->game_background_texture = sfTexture_createFromFile(assets[4], NULL);
+    jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets_vacuum[rand() % 5], NULL);
+    jam->jam_p.waste_bags_texture = sfTexture_createFromFile(assets[3], NULL);
     jam->all_time_best_score = get_best_score();
 }

@@ -25,10 +25,9 @@ int set_play_color(sfVector2i pos, jam_t *jam)
     return (err);
 }
 
-int set_stats_settings_color(sfVector2i pos, jam_t *jam)
+int set_stats_color(sfVector2i pos, jam_t *jam)
 {
     sfFloatRect st = sfText_getGlobalBounds(jam->jam_ts.stats);
-    sfFloatRect se = sfText_getGlobalBounds(jam->jam_ts.settings);
     unsigned int err = 0;
 
     if (pos.x > st.left && pos.x < (st.left + st.width)
@@ -39,29 +38,14 @@ int set_stats_settings_color(sfVector2i pos, jam_t *jam)
             err = (stats(jam) == 84) ? (84) : (0);
     } else
         sfText_setColor(jam->jam_ts.stats, sfWhite);
-    if (pos.x > se.left && pos.x < (se.left + se.width)
-        && pos.y > se.top && pos.y < (se.top + se.height)) {
-        sfText_setColor(jam->jam_ts.settings, blue);
-        if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
-            err = (settings(jam) == 84) ? (84) : (0);
-    } else
-        sfText_setColor(jam->jam_ts.settings, sfWhite);
     return (err);
 }
 
-int set_htp_credits_color(sfVector2i pos, jam_t *jam)
+int set_credits_color(sfVector2i pos, jam_t *jam)
 {
-    sfFloatRect h = sfText_getGlobalBounds(jam->jam_ts.how_to_play);
     sfFloatRect c = sfText_getGlobalBounds(jam->jam_ts.credits);
     unsigned int err = 0;
 
-    if (pos.x > h.left && pos.x < (h.left + h.width)
-        && pos.y > h.top && pos.y < (h.top + h.height)) {
-        sfText_setColor(jam->jam_ts.how_to_play, blue);
-        if (jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
-            err = (how_to_play(jam) == 84) ? (84) : (0);
-    } else
-        sfText_setColor(jam->jam_ts.how_to_play, sfWhite);
     if (pos.x > c.left && pos.x < (c.left + c.width)
         && pos.y > c.top && pos.y < (c.top + c.height)) {
         sfText_setColor(jam->jam_ts.credits, blue);
@@ -89,9 +73,9 @@ int set_buttons_colors(sfVector2i pos, jam_t *jam)
 {
     if (set_play_color(pos, jam) == 84)
         return (84);
-    if (set_stats_settings_color(pos, jam) == 84)
+    if (set_stats_color(pos, jam) == 84)
         return (84);
-    if (set_htp_credits_color(pos, jam) == 84)
+    if (set_credits_color(pos, jam) == 84)
         return (84);
     set_quit_color(pos, jam);
     return (0);

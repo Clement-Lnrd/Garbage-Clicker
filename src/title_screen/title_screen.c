@@ -7,9 +7,6 @@
 
 #include "../../include/epi_jam.h"
 
-// int CSFML vector to position window at left top of screen
-static const sfVector2i pos_window = {0, 0};
-
 static void draw_elements(jam_t *jam)
 {
     sfRenderWindow_clear(jam->window, sfBlack);
@@ -17,8 +14,6 @@ static void draw_elements(jam_t *jam)
     sfRenderWindow_drawText(jam->window, jam->jam_ts.title, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_ts.play, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_ts.stats, NULL);
-    sfRenderWindow_drawText(jam->window, jam->jam_ts.settings, NULL);
-    sfRenderWindow_drawText(jam->window, jam->jam_ts.how_to_play, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_ts.credits, NULL);
     sfRenderWindow_drawText(jam->window, jam->jam_ts.quit, NULL);
 }
@@ -47,12 +42,12 @@ int title_screen(void)
     set_struct(jam);
     if (!jam->jam_p.vacuum_texture || !jam->jam_p.waste_bags_texture
         || !jam->window || !jam->background_texture || !jam->font || !jam->music
-        || !jam->game_background_texture || !jam->jam_htp.htp_texture) {
+        || !jam->game_background_texture) {
         free(jam);
         return (84);
     }
     sfRenderWindow_setFramerateLimit(jam->window, 60);
-    sfRenderWindow_setPosition(jam->window, pos_window);
+    sfRenderWindow_setPosition(jam->window, (sfVector2i){0, 0});
     sfMusic_play(jam->music);
     sfMusic_setLoop(jam->music, sfTrue);
     render_elements(jam);
