@@ -60,7 +60,7 @@ static int render_play(jam_t *jam)
     jam->score = 0;
     for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
         jam->jam_p.waste_bags[i].initial_pos = (sfVector2f){(rand() % 1500 * -1), (rand() % 880 + 40)};
-        jam->jam_p.waste_bags[i].mov = (sfVector2f){(rand() % 1200 + 1500), 0};
+        jam->jam_p.waste_bags[i].mov = (sfVector2f){(rand() % 1200 + 3000), 0};
         if (i != 0 and jam->jam_p.waste_bags[i].initial_pos.y - jam->jam_p.waste_bags[i - 1].initial_pos.y < 40)
             jam->jam_p.waste_bags[i].initial_pos.x += 60;
         jam->jam_p.waste_bags[i].pos = jam->jam_p.waste_bags[i].initial_pos;
