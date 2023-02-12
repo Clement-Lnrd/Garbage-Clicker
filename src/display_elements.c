@@ -55,7 +55,7 @@ void display_elements(jam_t *jam)
     make_sprite(&jam->background, jam->background_texture);
     make_sprite(&jam->game_background, jam->game_background_texture);
     create_waste_bags(jam);
-    make_text(&jam->jam_ts.title, "Epitech JAM", jam->font, 200);
+    make_text(&jam->jam_ts.title, "Garbage Clicker", jam->font, 200);
     make_text(&jam->jam_ts.play, "Play", jam->font, 150);
     make_text(&jam->jam_ts.stats, "Statistics", jam->font, 100);
     make_text(&jam->jam_ts.credits, "Credits", jam->font, 100);

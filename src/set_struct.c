@@ -19,7 +19,7 @@ static const char *assets[] = {"assets/sounds/musics/theme.ogg",
 static const jam_t tmp = {
     .score = 0,
     .highest_score = 0,
-    .jam_ts.pos_title = {580, -20},
+    .jam_ts.pos_title = {500, -20},
     .jam_ts.pos_play = {840, 300},
     .jam_ts.pos_stats = {620, 500},
     .jam_ts.pos_credits = {1005, 500},
@@ -46,7 +46,7 @@ void set_struct(jam_t *jam)
     sfVideoMode mode = {1920, 1080, 32};
 
     (*jam) = tmp;
-    jam->window = sfRenderWindow_create(mode, "Epitech JAM", sfClose, NULL);
+    jam->window = sfRenderWindow_create(mode, "Garbage Clicker", sfClose, NULL);
     jam->music = sfMusic_createFromFile(assets[0]);
     jam->font = sfFont_createFromFile(assets[1]);
     jam->background_texture = sfTexture_createFromFile(assets[2], NULL);
