@@ -36,8 +36,7 @@ static void draw_elements(jam_t *jam, char *score, char *fails, unsigned int *fa
 
 static int leave_play(jam_t *jam, unsigned int err, unsigned int fails)
 {
-    // TODO replace 500 5 or another raisonable number
-    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue || fails > 500) {
+    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue || fails >= 5) {
         if (jam->highest_score < jam->score)
             jam->highest_score = jam->score;
         if (jam->all_time_best_score < jam->score) {
