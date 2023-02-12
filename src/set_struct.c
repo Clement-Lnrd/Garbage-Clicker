@@ -14,8 +14,7 @@
 static const char *assets[] = {"assets/sounds/musics/hp_theme.ogg"
     , "assets/fonts/marvel.ttf", "assets/textures/background.png"
     , "assets/textures/vacuum.png", "assets/textures/waste_bags.png"
-    , "assets/textures/game_background.png", "assets/textures/htp.png",
-    "assets/textures/waste_bags.png", NULL};
+    , "assets/textures/game_background.png", "assets/textures/htp.png", NULL};
 
 static const jam_t tmp = {
     .score = 0,
