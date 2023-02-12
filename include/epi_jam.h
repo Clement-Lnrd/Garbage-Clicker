@@ -129,6 +129,7 @@ typedef struct jam {
     jam_credits jam_c;
 } jam_t;
 
+void make_sprite(sfSprite **sprite, sfTexture *texture);
 void set_struct(jam_t *);
 void display_elements(jam_t *);
 void render_elements(jam_t *);

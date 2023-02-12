@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include "../include/epi_jam.h"
 
-static void make_sprite(sfSprite **sprite, sfTexture *texture)
+void make_sprite(sfSprite **sprite, sfTexture *texture)
 {
     (*sprite) = sfSprite_create();
     sfSprite_setTexture((*sprite), texture, sfTrue);
@@ -54,7 +54,6 @@ void display_elements(jam_t *jam)
 {
     make_sprite(&jam->background, jam->background_texture);
     make_sprite(&jam->game_background, jam->game_background_texture);
-    make_sprite(&jam->jam_p.vacuum, jam->jam_p.vacuum_texture);
     create_waste_bags(jam);
     make_text(&jam->jam_ts.title, "Epitech JAM", jam->font, 200);
     make_text(&jam->jam_ts.play, "Play", jam->font, 150);

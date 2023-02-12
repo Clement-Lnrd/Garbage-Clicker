@@ -7,6 +7,11 @@
 
 #include "../../include/epi_jam.h"
 
+static const char *assets_vacuum[] = {"assets/textures/vacuum.png",
+    "assets/textures/vacuum_etchebest.png", "assets/textures/vacuum_gabriel.png",
+    "assets/textures/vacuum_chloe.png", "assets/textures/vacuum_sebastien.png",
+    "assets/textures/vacuum_adam.png", "assets/textures/vacuum_augustin.png", NULL};
+
 static void handle_waste_bags(jam_t *jam, unsigned int *fails)
 {
     sfVector2i pos = {0};
@@ -82,10 +87,22 @@ static int render_play(jam_t *jam)
 
 int play(jam_t *jam)
 {
+    jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets_vacuum[rand() % 7], NULL);
+    if (!jam->jam_p.vacuum_texture)
+        return (84);
+    make_sprite(&jam->jam_p.vacuum, jam->jam_p.vacuum_texture);
+    sfSprite_setOrigin(jam->jam_p.vacuum, (sfVector2f){145, 140});
+    sfSprite_setPosition(jam->jam_p.vacuum, jam->jam_p.pos_vacuum);
     sfRenderWindow_setMouseCursorVisible(jam->window, sfFalse);
     for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i)
         sfClock_restart(jam->jam_p.waste_bags[i].clock);
-    if (render_play(jam) == 84)
+    if (render_play(jam) == 84) {
+        sfTexture_destroy(jam->jam_p.vacuum_texture);
         return (84);
+    }
+    sfSprite_destroy(jam->jam_p.vacuum);
+    sfTexture_destroy(jam->jam_p.vacuum_texture);
+    jam->jam_p.vacuum = NULL;
+    jam->jam_p.vacuum_texture = NULL;
     return (0);
 }

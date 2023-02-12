@@ -29,8 +29,6 @@ static void set_elements_positions_2(jam_t *jam)
 
 static void set_elements_positions(jam_t *jam)
 {
-    sfSprite_setOrigin(jam->jam_p.vacuum, (sfVector2f){145, 140});
-    sfSprite_setPosition(jam->jam_p.vacuum, jam->jam_p.pos_vacuum);
     sfText_setPosition(jam->jam_ts.title, jam->jam_ts.pos_title);
     sfText_setPosition(jam->jam_ts.play, jam->jam_ts.pos_play);
     sfText_setPosition(jam->jam_ts.stats, jam->jam_ts.pos_stats);
