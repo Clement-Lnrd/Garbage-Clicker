@@ -14,5 +14,7 @@ int jam(__attribute__((unused)) int ac, __attribute__((unused)) char **av,
         write(2, "Please launch this program with an environment!\n", 48);
         return (84);
     }
-    return (title_screen());
+    if (check_files() == 0)
+        return (title_screen());
+    return (84);
 }

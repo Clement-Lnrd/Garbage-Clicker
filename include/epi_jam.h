@@ -165,6 +165,7 @@ int settings(jam_t *);
 int how_to_play(jam_t *);
 int credits(jam_t *);
 void check_closing_event(jam_t *jam);
+int check_files(void);
 int jam(int, char **, char **);
 
 #endif /* !EPI_JAM_H_ */
