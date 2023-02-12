@@ -17,7 +17,9 @@ static const char *assets[] = {"assets/sounds/musics/theme.ogg",
     NULL};
 
 static const char *assets_vacuum[] = {"assets/textures/vacuum.png",
-    "assets/textures/vacuum_etchebest.png", NULL};
+    "assets/textures/vacuum_etchebest.png", "assets/textures/vacuum_gabriel.png",
+    "assets/textures/vacuum_chloe.png", "assets/textures/vacuum_sebastien.png",
+    "assets/textures/vacuum_adam.png", "assets/textures/vacuum_augustin.png", NULL};
 
 static const jam_t tmp = {
     .score = 0,
@@ -54,7 +56,7 @@ void set_struct(jam_t *jam)
     jam->font = sfFont_createFromFile(assets[1]);
     jam->background_texture = sfTexture_createFromFile(assets[2], NULL);
     jam->game_background_texture = sfTexture_createFromFile(assets[4], NULL);
-    jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets_vacuum[rand() % 2], NULL);
+    jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets_vacuum[rand() % 7], NULL);
     jam->jam_p.waste_bags_texture = sfTexture_createFromFile(assets[3], NULL);
     jam->all_time_best_score = get_best_score();
 }
