@@ -22,7 +22,7 @@ SRC				=	src/utilities/check_closing_event.c	\
 
 OBJ				=	$(SRC:.c=.o)
 
-NAME			=	epi_jam
+NAME			=	garbage_clicker
 
 W_FLAGS			=	-W -Wall -Wextra
 
