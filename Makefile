@@ -5,8 +5,7 @@
 ## Makefile
 ##
 
-SRC				=	src/utilities/check_files.c	    	\
-					src/utilities/check_closing_event.c	\
+SRC				=	src/utilities/check_closing_event.c	\
 					src/destroy_epi_jam.c				\
 					src/set_struct.c					\
 					src/display_elements.c				\
