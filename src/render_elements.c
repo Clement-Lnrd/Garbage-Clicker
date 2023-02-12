@@ -42,7 +42,12 @@ static void set_elements_positions(jam_t *jam)
     sfText_setPosition(jam->jam_p.fail_, jam->jam_p.pos_fail_);
     sfText_setPosition(jam->jam_c.title, jam->jam_c.pos_title);
     sfText_setPosition(jam->jam_c.person, jam->jam_c.pos_person);
-    sfText_setPosition(jam->jam_c.other, jam->jam_c.pos_other);
+    sfText_setPosition(jam->jam_c.person1, (sfVector2f){jam->jam_c.pos_person.x, jam->jam_c.pos_person.y + 60});
+    sfText_setPosition(jam->jam_c.person2, (sfVector2f){jam->jam_c.pos_person.x, jam->jam_c.pos_person.y + 120});
+    sfText_setPosition(jam->jam_c.person3, (sfVector2f){jam->jam_c.pos_person.x, jam->jam_c.pos_person.y + 180});
+    sfText_setPosition(jam->jam_c.person4, (sfVector2f){jam->jam_c.pos_person.x, jam->jam_c.pos_person.y + 240});
+    sfText_setPosition(jam->jam_c.person5, (sfVector2f){jam->jam_c.pos_person.x, jam->jam_c.pos_person.y + 300});
+    sfText_setPosition(jam->jam_c.other, (sfVector2f){jam->jam_c.pos_person.x, jam->jam_c.pos_person.y + 360});
     sfText_setPosition(jam->jam_st.title, jam->jam_st.pos_title);
     set_elements_positions_2(jam);
 }

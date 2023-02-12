@@ -67,11 +67,11 @@ void display_elements(jam_t *jam)
     make_text(&jam->jam_p.fail, "0", jam->font, 70);
     make_text(&jam->jam_c.title, "Credits", jam->font, 100);
     make_text(&jam->jam_c.person, "Clement Lienard", jam->font, 70);
-    make_text(&jam->jam_c.person1, "Clement Lienard", jam->font, 70);
-    make_text(&jam->jam_c.person2, "Clement Lienard", jam->font, 70);
-    make_text(&jam->jam_c.person3, "Clement Lienard", jam->font, 70);
-    make_text(&jam->jam_c.person4, "Clement Lienard", jam->font, 70);
-    make_text(&jam->jam_c.person5, "Clement Lienard", jam->font, 70);
-    make_text(&jam->jam_c.other, "Warner Bros", jam->font, 70);
+    make_text(&jam->jam_c.person1, "Ewen Sellitto", jam->font, 70);
+    make_text(&jam->jam_c.person2, "Dominique kambalebaraka", jam->font, 70);
+    make_text(&jam->jam_c.person3, "Jules Weishaus", jam->font, 70);
+    make_text(&jam->jam_c.person4, "Josephine Chicouras", jam->font, 70);
+    make_text(&jam->jam_c.person5, "Picolas Nechart", jam->font, 70);
+    make_text(&jam->jam_c.other, "", jam->font, 70);
     display_elements_2(jam);
 }
