@@ -48,8 +48,10 @@ int title_screen(void)
     if (!jam->jam_p.clock || !jam->jam_p.vacuum_texture
         || !jam->jam_p.waste_bags_texture || !jam->window
         || !jam->background_texture || !jam->font || !jam->music
-        || !jam->game_background_texture || jam->jam_htp.htp_texture)
+        || !jam->game_background_texture || !jam->jam_htp.htp_texture) {
+        free(jam);
         return (84);
+    }
     sfRenderWindow_setFramerateLimit(jam->window, 60);
     sfRenderWindow_setPosition(jam->window, pos_window);
     sfMusic_play(jam->music);
