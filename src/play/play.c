@@ -9,9 +9,10 @@
 
 static void handle_waste_bags(jam_t *jam, sfVector2i pos, unsigned int *fails)
 {
-    sfTime time = sfClock_getElapsedTime(jam->jam_p.clock);
+    sfTime time;
 
     for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
+        time = sfClock_getElapsedTime(jam->jam_p.waste_bags[i].clock);
         jam->jam_p.waste_bags[i].pos.x = (((time.microseconds / jam->jam_p.waste_bags[i].mov.x) - 250) + time.microseconds / 8000) + jam->jam_p.waste_bags[i].initial_pos.x;
         sfSprite_setPosition(jam->jam_p.vacuum, sfVector2i_to_sfVector2f(pos));
         sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, jam->jam_p.waste_bags[i].pos);
@@ -79,8 +80,9 @@ static int render_play(jam_t *jam)
 
 int play(jam_t *jam)
 {
-    // sfRenderWindow_setMouseCursorVisible(jam->window, sfFalse);
-    sfClock_restart(jam->jam_p.clock);
+    sfRenderWindow_setMouseCursorVisible(jam->window, sfFalse);
+    for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i)
+        sfClock_restart(jam->jam_p.waste_bags[i].clock);
     if (render_play(jam) == 84)
         return (84);
     return (0);

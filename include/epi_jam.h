@@ -58,11 +58,13 @@ typedef struct jam_title_screen {
     sfVector2f pos_quit;
 } jam_title_screen_t;
 
+/* Sprite [waste bag] structure */
 typedef struct sprite {
     sfSprite *sprite;
     sfVector2f pos;
     sfVector2f initial_pos;
     sfVector2f mov;
+    sfClock *clock;
 } sprite_t;
 
 // Play menu structure
@@ -71,7 +73,6 @@ typedef struct jam_play {
     sfText *score;
     sfText *fail_;
     sfText *fail;
-    sfClock *clock;
     sfTexture *vacuum_texture;
     sfTexture *waste_bags_texture;
     sfSprite *vacuum;

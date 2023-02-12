@@ -57,6 +57,5 @@ void set_struct(jam_t *jam)
     jam->jam_p.vacuum_texture = sfTexture_createFromFile(assets[3], NULL);
     jam->jam_p.waste_bags_texture = sfTexture_createFromFile(assets[4], NULL);
     jam->jam_htp.htp_texture = sfTexture_createFromFile(assets[6], NULL);
-    jam->jam_p.clock = sfClock_create();
     jam->all_time_best_score = get_best_score();
 }

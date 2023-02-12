@@ -9,10 +9,11 @@
 
 static void destroy_play(jam_t *jam)
 {
-    sfClock_destroy(jam->jam_p.clock);
     sfSprite_destroy(jam->jam_p.vacuum);
-    for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i)
+    for (u_int i = 0; jam->jam_p.waste_bags[i].sprite; ++i) {
         sfSprite_destroy(jam->jam_p.waste_bags[i].sprite);
+        sfClock_destroy(jam->jam_p.waste_bags[i].clock);
+    }
     free(jam->jam_p.waste_bags);
     sfTexture_destroy(jam->jam_p.vacuum_texture);
     sfTexture_destroy(jam->jam_p.waste_bags_texture);

@@ -9,15 +9,13 @@
 
 void waste_bags_pick_up(jam_t *jam, sfVector2f fpos, unsigned int *fails, u_int i)
 {
-    sfFloatRect kpos = sfSprite_getGlobalBounds(jam->jam_p.waste_bags[i].sprite);
-    sfVector2f pos = {fpos.x + 5, fpos.y + 5};
-    sfVector2f tmp = {kpos.left, kpos.top};
+    sfFloatRect bag_rect = sfSprite_getGlobalBounds(jam->jam_p.waste_bags[i].sprite);
 
-    sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, tmp);
-    if ((sfFloatRect_contains(&kpos, pos.x, pos.y)
+    sfSprite_setPosition(jam->jam_p.waste_bags[i].sprite, (sfVector2f){bag_rect.left, bag_rect.top});
+    if ((sfFloatRect_contains(&bag_rect, fpos.x, fpos.y)
         && jam->event.type == sfEvtMouseButtonPressed && jam->event.mouseButton.button == sfMouseLeft)
         || jam->jam_p.waste_bags[i].pos.x >= 1920) {
-        sfClock_restart(jam->jam_p.clock);
+        sfClock_restart(jam->jam_p.waste_bags[i].clock);
         jam->jam_p.waste_bags[i].initial_pos.y = (rand() % 880);
         jam->jam_p.waste_bags[i].initial_pos.x = (rand() % 1500 * -1);
         jam->jam_p.waste_bags[i].pos.y = jam->jam_p.waste_bags[i].initial_pos.y;

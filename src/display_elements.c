@@ -31,10 +31,12 @@ static void create_waste_bags(jam_t *jam)
         jam->jam_p.waste_bags[i].pos = (sfVector2f){0, 0};
         jam->jam_p.waste_bags[i].initial_pos = (sfVector2f){0, 0};
         jam->jam_p.waste_bags[i].mov = (sfVector2f){0, 0};
+        jam->jam_p.waste_bags[i].clock = sfClock_create();
         sfSprite_setTextureRect(jam->jam_p.waste_bags[i].sprite, (sfIntRect){(rand() % 5) * 28, 0, 28, 27});
         sfSprite_setScale(jam->jam_p.waste_bags[i].sprite, (sfVector2f){2, 2});
+
     }
-    jam->jam_p.waste_bags[5] = (sprite_t){NULL, {0, 0}, {0, 0}, {0, 0}};
+    jam->jam_p.waste_bags[5] = (sprite_t){NULL, {0, 0}, {0, 0}, {0, 0}, NULL};
 }
 
 static void display_elements_2(jam_t *jam)
